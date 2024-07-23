@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (c) 2016-Present Webkul Software Pvt. Ltd. (<https://webkul.com/>) -->
+<!-- See LICENSE file for full copyright and licensing details. -->
+<!-- License URL : <https://store.webkul.com/license.html/> -->
+
+<odoo>
+    <data>
+
+        <record id="saas_contract_trial_action" model="ir.actions.act_window">
+            <field name="name">Trial Contracts</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">saas.contract</field>
+            <field name="domain">[('is_trial_enabled','=','True'),('state','=','confirm')]</field>
+            <field name="view_mode">tree,form,kanban</field>
+        </record>
+
+        <record id="odoo_saas_kit.saas_contract_live_action" model="ir.actions.act_window">
+            <field name="domain">[('is_trial_enabled','!=','True'),('state','=','confirm')]</field>
+        </record>
+
+        <record id="saas_trial_contract_inherit_form" model="ir.ui.view">
+            <field name="name">saas.trial.contract.inherit.form</field>
+            <field name="model">saas.contract</field>
+            <field name="inherit_id" ref="odoo_saas_kit.saas_contract_form_view" />
+            <field name="arch" type="xml">
+                <xpath expr="//button[@name='extend_contract']" position='after'>
+                    <field name="trial_data_enabled" invisible='1' />
+                    <button string="Send Purchase Reminder" type="object" name="send_reminder" class="oe_highlight btn-sm" invisible="(state != 'trial_expired') or (purchase_reminder_sent)" />
+                    <button string="Send Purchase Reminder" type="object" name="send_reminder" class="btn-sm" invisible="(state != 'trial_expired') or (not purchase_reminder_sent) or (not is_trial_enabled)"/>
+                    <button string="Set Trial Data" type="object" name="update_trial_data" class="oe_highlight btn-sm" invisible="(not trial_data_enabled) or (state != 'confrim')" />
+                </xpath>
+                <xpath expr="//field[@name='trial_period']" position='before'>
+                    <field name="reminder_show" invisible='True' />
+                    <field name="purchase_reminder_sent" invisible='True' />
+                    <field name="is_trial_enabled" invisible="1"/>
+                    <field name="converted_contract_id" invisible="(not converted_contract_id)"/>
+                    <label for="trial_started_date" string="Trial Period" invisible="(not is_trial_enabled) and (not trial_started_date)" />
+                    <div invisible="(not is_trial_enabled) and (not trial_started_date)">
+                        <field name="trial_started_date" class="oe_inline" readonly="1"/>
+                        <span invisible="(not is_trial_enabled) and (not trial_started_date)"> To </span>
+                        <field name="start_date" class="oe_inline" readonly="1"/>
+                    </div>
+                </xpath>
+                <xpath expr="//field[@name='user_data_updated']" position="before">
+                    <div class="ribbon ribbon-top-right o_widget" invisible="(not is_trial_enabled)">
+                        <span class="bg-success" invisible="(state == 'trial_expired') or (state == 'trial_converted')">Trial</span>
+                        <span class="bg-danger" invisible="(state != 'trial_expired')">Trial Expired</span>
+                        <span class="bg-info" style="font-size:15px;" invisible="(state != 'trial_converted')">Trial Closed</span>
+                    </div>
+                </xpath>
+            </field>
+        </record>
+
+
+        <record id="saas_contract_trial_search_view" model="ir.ui.view">
+            <field name="name">Saas Contracts</field>
+            <field name="model">saas.contract</field>
+            <field name="inherit_id" ref="odoo_saas_kit.saas_contract_search_view" />
+            <field name="arch" type="xml">
+                <xpath expr="//filter[@name='live_contract']" position='replace'>
+                    <filter string="Live" name="live_contract" domain="[('state', '=', 'confirm'),('is_trial_enabled','!=',True)]"/>
+                    <filter string="Trial" name="trial_contract" domain="[('is_trial_enabled','=',True)]"/>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="saas_trial_contract_inherit_tree" model="ir.ui.view">
+            <field name="name">saas.trial.contract.inherit.tree</field>
+            <field name="model">saas.contract</field>
+            <field name="inherit_id" ref="odoo_saas_kit.saas_contract_tree_view" />
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='name']" position='attributes'>
+                    <attribute name="decoration-muted">(state in ['trial_converted','cancel'])</attribute>
+                    <attribute name="decoration-danger">(state in ['trial_expired' , 'expired'])</attribute>
+                    <attribute name="decoration-bf">(state not in ['trial_converted','cancel'])</attribute>
+                </xpath>
+                <xpath expr="//field[@name='partner_id']" position='attributes'>
+                    <attribute name="decoration-muted">(state in ['trial_converted','cancel'])</attribute>
+                    <attribute name="decoration-danger">(state in ['trial_expired' , 'expired'])</attribute>
+                    <attribute name="decoration-bf">(state not in ['trial_converted','cancel'])</attribute>
+                </xpath>
+                <xpath expr="//field[@name='state']" position='attributes'>
+                    <attribute name="decoration-muted">(state in ['trial_converted','cancel'])</attribute>
+                    <attribute name="decoration-danger">(state in ['trial_expired' , 'expired'])</attribute>
+                    <attribute name="decoration-bf">(state not in ['trial_converted','cancel'])</attribute>
+                </xpath>
+                <xpath expr="//field[@name='state']" position='after'>
+                    <field name="is_trial_enabled" readonly="1"/>
+                </xpath>
+            </field>
+        </record>
+
+
+        <record id="saas_trial_contract_inherit_kanban" model="ir.ui.view">
+            <field name="name">saas.trial.contract.inherit.kanban</field>
+            <field name="model">saas.contract</field>
+            <field name="inherit_id" ref="odoo_saas_kit.saas_contract_view_kanban" />
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='state']" position='attributes'>
+                    <attribute name="decoration-muted">(state in ['trial_converted','cancel'])</attribute>
+                    <attribute name="decoration-danger">(state in ['trial_expired' , 'expired'])</attribute>
+                    <attribute name="decoration-bf">(state not in ['trial_converted','cancel'])</attribute>
+                </xpath>
+                <xpath expr="//field[@name='name']" position='before'>
+                    <field name="is_trial_enabled" invisible="1"/>
+                </xpath>
+                <xpath expr="//h2[@name='kanban_h2']" position='before'>
+                    <div class="kanban-ribbon kanban-ribbon-top-right  o_widget" invisible="(not is_trial_enabled)">
+                        <span class="bg-success" invisible="(state == 'trial_expired') or (state == 'trial_converted')">Trial</span>
+                        <span class="bg-danger" invisible="(state != 'trial_expired')">Trial Expired</span>
+                        <span class="bg-info" invisible="(state != 'trial_converted')">Trial Closed</span>
+                    </div>
+                </xpath>
+            </field>
+        </record>
+
+        <menuitem action="saas_contract_trial_action" sequence="2" id="menu_contract_trial_menu" parent="odoo_saas_kit.menu_contract_menu"/>
+    </data>
+</odoo>

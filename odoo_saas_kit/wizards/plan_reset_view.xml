@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (c) 2016-Present Webkul Software Pvt. Ltd. (<https://webkul.com/>) -->
+<!-- See LICENSE file for full copyright and licensing details. -->
+<!-- License URL : <https://store.webkul.com/license.html/> -->
+
+<odoo>
+    <data>
+        <record id="plan_reset_wizard_view" model="ir.ui.view">
+            <field name="name">Saas Plan Reset</field>
+            <field name="model">saas.plan.reset</field>
+            <field name="arch" type="xml">
+                <form string="Contract Creation">
+                    <sheet>
+                    <field name="plan_id" invisible="1"/>
+                    <br/>
+                    <div>
+                    If you reset this plan all the releted products will be unpublished
+                    </div>
+                    <br/>
+                    </sheet>
+                    <footer>
+                        <button string='Reset' name="action_reset_plan" type="object" class="btn-primary"/>
+                        <button string="Cancel" class="btn-default" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_wizard_plan_reset" model="ir.actions.act_window">
+            <field name="name">SaaS Contract Creation</field>
+            <field name="res_model">saas.plan.reset</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="plan_reset_wizard_view"/>
+            <field name="context">{'default_plan_id': active_id}</field>
+            <field name="target">new</field>
+        </record>
+    </data>
+</odoo>

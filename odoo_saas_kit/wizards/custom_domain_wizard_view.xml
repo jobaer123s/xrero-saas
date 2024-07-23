@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (c) 2016-Present Webkul Software Pvt. Ltd. (<https://webkul.com/>) -->
+<!-- See LICENSE file for full copyright and licensing details. -->
+<!-- License URL : <https://store.webkul.com/license.html/> -->
+
+<odoo>
+    <data>
+        <record id="custom_domain_view_wizard" model="ir.ui.view">
+            <field name="name">Domain Detail</field>
+            <field name="model">custom.domain.wizard</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <!-- <h3>Enter Domain !</h3> -->
+                        <div class="row" style="width: 100%;">
+                            <div class="col-6">
+                                <label for="use_custom_domain"/>
+                                <field name="use_custom_domain"/>
+                            </div>
+                            <div class="col-6">
+                                <label for="is_ssl_enable"/>
+                                <field name="is_ssl_enable" readonly = "1"/>
+                            </div>
+                        </div>
+                        <br/>
+                        <group>
+                            <group>
+                                <label for="name"/>
+                                <div class ="row">
+                                    <div class="col-4">
+                                        <field  name="name"/>
+                                    </div>
+                                    <div class="col-8">
+                                        <span invisible="(use_custom_domain)">.<field class="oe_inline" name="base_url" readonly="1"/></span>
+                                    </div>
+                                </div>
+                            </group>
+                        </group>
+                        <h3 invisible="(not use_custom_domain)">Note: DNS entries should be made prior to adding the domain here, please ensure the domain is pointed to the IP.</h3>
+                        <div invisible="(use_custom_domain)" style="height:26px;">   </div>
+                    </sheet>
+                    <footer>
+                        <button name="save_domain" string="Create" type="object" class="btn-primary"/>
+                        <button string="Cancel" class="btn-default" special="cancel" />
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="custom_domain_wizard_action" model="ir.actions.act_window">
+            <field name="name">Enter Domain</field>
+            <field name="res_model">custom.domain.wizard</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="custom_domain_view_wizard"/>
+            <field name="context">{'default_contract_id': active_id}</field>
+            <field name="target">new</field>
+        </record>
+
+    </data>
+</odoo>

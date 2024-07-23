@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (c) 2016-Present Webkul Software Pvt. Ltd. (<https://webkul.com/>) -->
+<!-- See LICENSE file for full copyright and licensing details. -->
+<!-- License URL : <https://store.webkul.com/license.html/> -->
+
+<odoo>
+    <record id="res_config_settings_inheri_view_form" model="ir.ui.view">
+        <field name="name">res.config.setting.inherit.form.saas</field>
+        <field name="model">res.config.settings</field>
+        <field name="priority" eval='20'/>
+        <field name="inherit_id" ref="base.res_config_settings_view_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//form" position="inside">
+
+                <app string="Odoo Saas Kit" data-string="Odoo Saas Kit" name="odoo_saas_kit">
+                    <block title="Default Configuration for Odoo Saas KIT" id="saas_kit_config" class="saas_kit_setting_block" name="saas_kit_setting_container">
+
+                        <setting class = "col-12" id="saas_kit_auto_create_client" string="Scheduled Client Creation" help="Automatically create clients from contract via Scheduler.">
+                            <field name="auto_create_client"/>
+                        </setting>
+                        <setting>
+                        </setting>
+
+                        <setting id="saas_kit_renew_mail"  class = "col-12" string="Send Expiry Warning to expired Saas Contracts" help=" Automatically send renew mail for continue the contract.">
+                            <field name="enable_renew_mail"/>
+                            <div class="col-md-1 o_setting_box" invisible="not enable_renew_mail">
+                            </div>
+                            <div class="col-xs-12 col-md-10 o_setting_box" id="saas_kit_renew_mail_div" invisible="not enable_renew_mail">
+                                <div class="row">
+                                    <div>
+                                        <div class="o_setting_left_pane">
+                                            <field name="enable_renew_mail_paid_contract"/>
+                                        </div>
+                                        <label for="enable_renew_mail_paid_contract" string="For Paid Contract"/>
+                                    </div>
+                                    <br/>
+                                    <div class="col-1">
+                                    </div>
+                                    <div class = "col-11" invisible="not enable_renew_mail_paid_contract">
+                                        <div>
+                                            <label for="renew_period_paid_contract" string="Renew Reminders ends after (days)"/>
+                                            <field class="oe_inline" name="renew_period_paid_contract" required="1"/>
+                                        </div>
+                                        <div class="text-muted">
+                                        For Paid Contract Renew mails will sent to Customer.
+                                        </div>
+                                        <br/>
+                                        <div>
+                                            <label for="no_of_mails_paid_contract" string="No of Expiry mails"/>
+                                            <field class="oe_inline" name="no_of_mails_paid_contract" required="1" value="3"/>
+                                        </div>
+                                        <div class="text-muted">
+                                            No of mail should be less than or equal to Renew period.
+                                        </div>
+                                        <br/>
+                                        <div>
+                                            <field name="stop_client_paid_contract" class="d-inline"/>
+                                            <label for="stop_client_paid_contract" string="Automatic Disable expired Saas Client Instances" class="d-inline"/>
+                                        </div>
+                                        <div class="row" invisible="not stop_client_paid_contract">
+                                            <div class="col-1">
+                                            </div>
+                                            <div class="col-10">
+                                                <div invisible="not stop_client_paid_contract">
+                                                    <field name="drop_paid_contract"/>
+                                                    <label for="drop_paid_contract" string="Delete Client Instances" invisible="not stop_client_paid_contract"/>
+                                                    <br/>
+                                                    <div class="text-muted" invisible="not stop_client_paid_contract">
+                                                        If selected related Saas Client container and database would be dropped.
+                                                    </div>
+                                                </div>
+                                                <div invisible="not drop_paid_contract">
+                                                    <label for="buffer_paid_contract" string="Buffer Period"/>
+                                                    <field class="oe_inline" name="buffer_paid_contract" required="1" value="3"/>
+                                                    <div class="text-muted" invisible="not drop_paid_contract">
+                                                    Disabled client would be dropped after this Buffer Period
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                            
+                        </setting>
+                    </block>
+                </app>
+            </xpath>
+        </field>
+    </record>
+</odoo>

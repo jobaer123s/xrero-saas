@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (c) 2016-Present Webkul Software Pvt. Ltd. (<https://webkul.com/>) -->
+<!-- See LICENSE file for full copyright and licensing details. -->
+<!-- License URL : <https://store.webkul.com/license.html/> -->
+
+<odoo>
+    <data noupdate='1'>
+        <record id="saas_kit_trial.saas_purchase_reminder_template" model="mail.template">
+            <field name="name">SaaS Purchase Reminder Template</field>
+            <field name="email_from">{{(user.email or '')}}</field>
+            <field name="subject">{{object.company_id.name}} Contract (Ref {{object.name or 'n/a' }})</field>
+            <field name="partner_to">{{object.partner_id.id}}</field>
+            <field name="model_id" ref="saas_kit_trial.model_saas_contract"/>
+            <field name="auto_delete" eval="True"/>
+            <field name="lang">{{object.partner_id.lang}}</field>
+            <field name="body_html"><![CDATA[
+                <p>Dear <t t-esc="object.partner_id.name" />
+                <t set="access_url" t-value="object.get_subdomain_url() or ''" />
+                <t set="access_name" t-value="'Create Your Domain Name'" />
+
+                <t t-if="object.partner_id.parent_id" >
+                    (<i><t t-esc="object.partner_id.parent_id.name" /></i>)
+                </t>
+                ,</p>
+                
+                <p>We want to inform you that your trial period for <t t-esc="object.plan_id.name" /> Plan is expired.</p>
+                </br>
+                <p>
+                    Now free trial period is over, to continue the services of plan please take subscription of plan.
+                </p>
+                </br>
+                <p>
+                    Now plan becomes a subscription based plan which means that the plan would remain active from the date of activation. <br/>
+                    Post the expiration of the plan the Instance will expire.<br/>
+                    To avoid this, please renew your plan before the expiration date.
+                </p>
+                </br>
+                <p>
+                    Commencement Date: <t t-esc="object.start_date" /><br/>
+                    Next Invoice Date: <t t-esc="object.next_invoice_date" /><br/>
+                    Total Number Of Billing Cycles: <t t-esc="object.total_cycles" /><br/>
+                </p>
+                <t t-set="url" t-value="object.get_contract_url()" />
+                </br>
+                <p>
+                    To Purchase the current plan, Click <a t-att-href="url">Purchase Now</a>
+                </p>
+                </br>
+                <p>
+                    If you have any queries or issues, please contact our support team.
+                </p>
+
+                <br/><br/>
+                <br/>
+
+                <p>Thank you,</p>
+
+                <p style="color:#888888;">
+                </p>
+                ]]></field>
+        </record>
+    </data>
+</odoo>

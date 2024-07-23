@@ -1,0 +1,35 @@
+.kanban-ribbon-top-right span {
+    left: -15px;
+    top: 23px;
+    transform: rotate(45deg);
+}
+
+.kanban-ribbon span {
+    z-index: 1;
+    position: absolute;
+    display: grid;
+    align-items: center;
+    width: 225px;
+    height: 40px;
+    padding: 0 44px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    color: #fff;
+    font: 700 14px/1 'Lato', sans-serif;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+    text-transform: uppercase;
+    text-align: center;
+    overflow: hidden;
+    user-select: none;
+}
+
+.kanban-ribbon-top-right {
+    margin-top: -9px;
+    right: 0;
+}
+
+.kanban-ribbon {
+    width: 168px;
+    height: 85px;
+    overflow: hidden;
+    position: absolute;
+}

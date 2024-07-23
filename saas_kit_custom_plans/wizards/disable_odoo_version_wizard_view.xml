@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (c) 2016-Present Webkul Software Pvt. Ltd. (<https://webkul.com/>) -->
+<!-- See LICENSE file for full copyright and licensing details. -->
+<!-- License URL : <https://store.webkul.com/license.html/> -->
+
+<odoo>
+    <data>
+
+        <record id="drop_odoo_version_db_wizard_view" model="ir.ui.view">
+            <field name="name">drop_odoo_version_db_wizard</field>
+            <field name="model">saas.odoo.version.db.unlink</field>
+            <field name="arch" type="xml">
+                <form>
+                    Are you sure you want to Drop Database? It will delete the DB Permanentaly! 
+                    <footer>
+                        <button string="Yes" name="drop_odoo_version_db" type="object" class="btn-primary"/>
+                        <button string="No" class="btn-default" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+
+        <record id="action_drop_odoo_version_db_wizard" model="ir.actions.act_window">
+            <field name="name">Drop DB</field>
+            <field name="res_model">saas.odoo.version.db.unlink</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="drop_odoo_version_db_wizard_view"/>
+            <field name="context">{'db_id': active_id}</field>
+            <field name="target">new</field>
+        </record>
+
+    </data>
+</odoo>

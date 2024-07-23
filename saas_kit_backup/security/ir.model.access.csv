@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_backup_process_wizard_manager,backup.process.wizard.manager,model_backup_process_wizard,odoo_saas_kit.group_saas_manager,1,1,1,1
+access_backup_process_wizard_all,access.backup.process.wizard.all,model_backup_process_wizard,,1,0,0,0
+access_cancel_backup_process_manager,cancel.backup.process.manager,model_cancel_backup_process,odoo_saas_kit.group_saas_manager,1,1,1,1
+access_cancel_backup_process_all,access.cancel.backup.process.all,model_cancel_backup_process,,1,0,0,0

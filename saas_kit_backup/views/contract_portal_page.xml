@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (c) 2016-Present Webkul Software Pvt. Ltd. (<https://webkul.com/>) -->
+<!-- See LICENSE file for full copyright and licensing details. -->
+<!-- License URL : <https://store.webkul.com/license.html/> -->
+
+<odoo>
+    <data>
+        <template id="contract_portal_page_inherit" inherit_id="odoo_saas_kit.portal_contract_page">
+            <xpath expr="//div[@id='contract_page_sub_links']" position="inside">
+            <t t-if="contract.state == 'confirm'">
+                <button id="show_backup_details_in_cont" class="header_buttons_in_cont" ><a style="color: #000000;" t-attf-href="/my/backup/files/#{contract.id}?access_token=#{contract.token}#{keep_query()}">Backup</a></button>
+            </t>
+                <!-- <div id="bacup_process_name" class="pb-2 pt-3 card-header bg-white"> -->
+                    <!-- <button id="show_contract_details" class="header_buttons">Contract Details</button> -->
+                    <!-- <button id="show_invoice_details" class="header_buttons" >Invoice</button> -->
+                    <!-- <button id="show_backup_details" class="header_buttons" >Billing</button> -->
+                    <!-- <button id="show_billing_details" class="header_buttons" >Backup</button> -->
+                    <!-- <button id="show_seller_details" class="header_buttons" >Contact Seller</button> -->
+                <!-- </div> -->
+            </xpath>
+        </template>
+    </data>
+</odoo>

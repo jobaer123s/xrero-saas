@@ -1,0 +1,7 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_saas_odoo_version_manager,saas.odoo.version.manager,model_saas_odoo_version,odoo_saas_kit.group_saas_manager,1,1,1,1
+access_saas_odoo_version_all,access.saas.odoo.version.all,model_saas_odoo_version,,1,0,0,0
+access_saas_odoo_version_db_unlink_manager,saas.odoo.version.db.unlink.manager,model_saas_odoo_version_db_unlink,odoo_saas_kit.group_saas_manager,1,1,1,1
+access_saas_odoo_version_db_unlink_all,access.saas.odoo.version.db.unlink.all,model_saas_odoo_version_db_unlink,,1,0,0,0
+access_saas_odoo_version_cancel_manager,saas.odoo.version.cancel.manager,model_saas_odoo_version_cancel,odoo_saas_kit.group_saas_manager,1,1,1,1
+access_saas_odoo_version_cancel_all,access.saas.odoo.version.cancel.all,model_saas_odoo_version_cancel,,1,0,0,0

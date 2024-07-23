@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (c) 2016-Present Webkul Software Pvt. Ltd. (<https://webkul.com/>) -->
+<!-- See LICENSE file for full copyright and licensing details. -->
+<!-- License URL : <https://store.webkul.com/license.html/> -->
+
+<odoo>
+    <data>
+        <record id="backup_process_wizard_form_view" model="ir.ui.view">
+            <field name="name">Create Process Wizard</field>
+            <field name="model">backup.process.wizard</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name" invisible="1" />
+                                <field name="frequency_cycle" required="1" />
+                                <field name="backup_starting_time" required="1" />
+                            </group>
+
+                            <!-- <group>
+                                <field name="storage_path" />
+                            </group> -->
+                        </group>
+                    </sheet>
+                    <footer>
+                        <button name="create_process_data" type="object" string="Create" class="oe_highlight" invisible="(name == 'update')" />
+                        <button name="create_process_data" type="object" string="Update" class="oe_highlight" invisible="(name != 'update')" />
+                        <button name="cancel" string="Cancel" special="cancel" />
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="backup_process_cancel_wizard_form_view" model="ir.ui.view">
+            <field name="name">Confirmation</field>
+            <field name="model">cancel.backup.process</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <group>
+                                <div>
+                                <field name="name" readonly="1"/>
+                                </div>
+                            </group>
+                        </group>
+                    </sheet>
+                    <footer>
+                        <button name="call_record_method" type="object" string="Yes" class="btn-primary" />
+                        <button string="No" class="btn-default" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+
+
+        <record id="backup_process_wizard_action" model="ir.actions.act_window">
+            <field name="name">Create Backup Process</field>
+            <field name="res_model">backup.process.wizard</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+            <field name="view_id" ref="backup_process_wizard_form_view" />
+            <field name="context">{'client_id': active_id}</field>
+        </record>
+
+        <record id="backup_process_cancel_wizard" model="ir.actions.act_window">
+            <field name="name">Confirmation</field>
+            <field name="res_model">cancel.backup.process</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+            <field name="view_id" ref="backup_process_wizard_form_view" />
+        </record>
+
+
+
+    
+    </data>
+</odoo>

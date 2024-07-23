@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (c) 2016-Present Webkul Software Pvt. Ltd. (<https://webkul.com/>) -->
+<!-- See LICENSE file for full copyright and licensing details. -->
+<!-- License URL : <https://store.webkul.com/license.html/> -->
+
+<odoo>
+    <data>
+        <record id="saas_module_inherit_form" model="ir.ui.view">
+            <field name="name">saas.module.inherit.form</field>
+            <field name="model">saas.module</field>
+            <field name="inherit_id" ref="odoo_saas_kit.saas_module_form_view"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='image']" position="before">
+                    <field name="is_published" invisible="1" />
+                    <div class="oe_button_box" name="button_box">
+                        <button name="toggle_module_publish"
+                                invisible="(not is_published)"
+                                class="oe_stat_button"
+                                type="object" icon="fa-stop">
+                            <div class="o_stat_info o_field_widget">
+                                <span class="o_warning_text">Un Publish</span>
+                            </div>
+                        </button>
+                        <button name="toggle_module_publish"
+                                invisible="(is_published)"
+                                class="oe_stat_button"
+                                type="object" icon="fa-play">
+                            <div class="o_stat_info o_field_widget">
+                                <span class="text-success">Publish</span>
+                            </div>
+                        </button>
+                    </div>
+                </xpath>
+                <xpath expr="//field[@name='categ_id']" position="before">
+                    <field name="price" class="oe_inline"/>
+                    <field name="auto_install" />
+                    <field name="module_type" widget="radio"  options="{'horizontal': true}" />
+                    <field name="addons_path" readonly="(module_type == 'core')" invisible="(not module_type)" />
+                    <field name="odoo_version_id" string="Odoo Version"/>
+                </xpath>
+            </field>
+        </record>
+        
+        <record id="saas_module_search_view" model="ir.ui.view">
+            <field name="name">Categorized Modules</field>
+            <field name="model">saas.module</field>
+            <field name="arch" type="xml">
+                <search string="Module Version">
+                    <field name="name" string="Module" filter_domain="['|',('name','ilike',self),('technical_name','ilike',self)]"/>
+                    <field name="categ_id" filter_domain="[('categ_id', 'child_of', raw_value)]"/>
+                    <separator/>
+                    <filter name="archived" string="Archived" domain="[('active', '=', False)]" />
+                    <filter name="group_odoo_version_id" string="Odoo Version" icon="terp-partner" context="{'group_by':'odoo_version_id'}"/>
+                </search>
+            </field>
+        </record>
+        
+        <record id="odoo_saas_kit.saas_module_action" model="ir.actions.act_window">
+            <field name="context">{'search_default_group_odoo_version_id': 1}</field>
+        </record>
+
+    </data>
+</odoo>

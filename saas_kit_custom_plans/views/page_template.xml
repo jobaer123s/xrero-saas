@@ -1,0 +1,330 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (c) 2016-Present Webkul Software Pvt. Ltd. (<https://webkul.com/>) -->
+<!-- See LICENSE file for full copyright and licensing details. -->
+<!-- License URL : <https://store.webkul.com/license.html/> -->
+
+<odoo>
+    <template id="plan_page" name="Saas Apps">
+        <t t-call="website.layout">
+            <div t-if="error" class="container-fluid text-center">
+                <img class="img img-fluid my-4" src="/web_editor/shape/http_routing/404.svg?c2=o-color-2" loading="lazy" /><br />
+                <h3 class="my-4">This page is not available right now. Please contact admin.</h3>
+                <a role="button" href="/" class="btn btn-primary my-4"><i class="fa fa-home me-2" />Back to Home</a>
+            </div>
+            <section class="custom_plan_section" t-else="">
+                <div class="container-fluid">
+                    <div class="d-flex flex-wrap">
+                        <div id="costing_nature" class="d-none"><t t-esc="costing_nature"></t></div>
+                        <div id="user_cost" class="d-none"><t t-esc="user_cost"></t></div>
+                        <div id="is_users" class="d-none"><t t-esc="is_users"></t></div>
+                        <div id="is_fixed_users" class="d-none"><t t-esc="is_fixed_users"></t></div>
+                        <div id="currency" class="d-none"><t t-esc="company.currency_id.name"></t></div>
+                        <div class="dd_container_row container-fluid row" id="text_top_cont">
+                            <div class="col-lg-9 col-sm-12 col-md-12">
+                                <h3><b>Select Apps</b></h3>
+                                <h6>Select the apps as per your requirement and create your instance for selected apps</h6>
+                            </div>
+                        </div>
+                        <div class="dd_container_row container-fluid row" id="upper_navbar_div">
+                            <div class="d-flex col-lg-9 col-sm-12 col-md-12 flex-wrap" id="inner_1_navbar_div">
+                            <!-- <div class="d-flex col-12" id="inner_1_navbar_div"> -->
+                                <div class="d-flex col-lg-4 col-sm-4 col-md-4" id="inner_2_navbar_div">
+                                    <div class="d-flex justify-content options_div" id="inner_3_navbar_div">
+                                        <span class="heading_text">CATEGORIES APPS: </span>
+                                        <div class="toggle_button pt-2">
+                                            <label class="switch">
+                                                <t t-if="normal_view">
+                                                    <input id="toggle_input" type="checkbox"/>                                                
+                                                </t>
+                                                <t t-else="">
+                                                    <input id="toggle_input" type="checkbox" checked="1"/>
+                                                </t>
+                                                <span class="slider round"></span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="d-flex col-lg-4 col-sm-4 col-md-4" id="inner_2_cycle_div">
+                                    <div class="d-flex justify-content options_div" id="inner_3_cycle_div">
+                                        <span class="heading_text" id="billing_text">BILLING CYCLE: </span>                                            
+                                        <div class="btn_div_lg dd_element_body upper_div " id="billing_cycle_button">
+                                            <div class="dropdown_menu_items">
+                                                <button class="btn dropdown-toggle btn-md btn2" type="button" id="dropdownmenu3" t-att-data-code="monthly" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                    Monthly
+                                                </button>
+                                                <div class="dropdown-menu" aria-labelledby="dropdownmenu">
+                                                    <button class="dropdown-item btn-md billing_cycle" t-att-data-code="monthly" type="button">Monthly</button>
+                                                    <button class="dropdown-item btn-md billing_cycle" t-att-data-code="yearly" type="button">Yearly</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="d-flex col-lg-4 col-sm-4 col-md-4">
+                                    <div class='d-flex justify-content options_div' id="combine_version_div">
+                                        <t t-if="odoo_version">
+                                            <span class="heading_text d-flex" id="odoo_version_text">
+                                                ODOO VERSION:
+                                            </span>
+                                        </t> 
+                                        <t t-if="is_odoo_version and odoo_version">
+                                            <div class="version_div">
+                                                <div class="btn_div_lg dd_element_body upper_version_div">
+                                                    <div class="dropdown_menu_items">
+                                                        <button class="btn dropdown-toggle btn-md btn2" type="button" id="dropdownmenu2" t-att-data-code="odoo_version[0].code" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                            <t t-esc="odoo_version[0].name" />
+                                                        </button>
+                                                        <div class="dropdown-menu" aria-labelledby="dropdownmenu2">
+                                                            <t t-foreach="odoo_version" t-as="version">
+                                                                <button class="dropdown-item btn-md version_button" t-att-data-code="version.code" type="button">
+                                                                <t t-esc="version.name" />
+                                                                </button>
+                                                            </t>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </t>
+                                        <t t-else="">
+                                            <t t-if="odoo_version">
+                                                <div>
+                                                    <div class="btn_div_lg dd_element_body upper_version_div">
+                                                        <div class="dropdown_menu_items">
+                                                            <button class="btn btn-md btn2" type="button" id="dropdownmenu2" t-att-data-code="odoo_version[0].code" aria-haspopup="true" aria-expanded="false">
+                                                                <t t-esc="odoo_version[0].name" />
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </t>
+                                        </t>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="container-fluid" style="padding-bottom: 2%;">
+                    <div class="dd_container_row container-fluid row" style="padding-top:2%;">
+                        <t t-if="normal_view">
+                            <t t-call="saas_kit_custom_plans.normal_view_template">
+                            </t>
+                        </t>
+                        <t t-if="categorical_view">
+                            <t t-call="saas_kit_custom_plans.category_view_template" />
+                        </t>
+                        <t t-call="saas_kit_custom_plans.select_apps_section" />
+                    </div>
+                </div>
+            </section>
+        </t>    
+    </template>
+
+    <template id="normal_view_template" name="Normal Template">
+        <div id="normal_view_main_div" class="d-flex col-lg-9 col-sm-12 col-md-12 align-content-start flex-wrap" style="">
+            <t t-foreach="modules" t-as="app">
+                <div class="col-lg-4 col-md-4 col-sm-6 col-12" style="margin-bottom: 2%;  ">
+                    <div class="app_card d-flex" t-att-id="app.technical_name+'_main'">
+                        <div class="col-3">
+                            <span t-field="app.image" class="app_image" t-options="{'widget': 'image', 'qweb_img_responsive': False, 'class': 'rounded o_image_64_max app_image_saas'}"/>
+                        </div>
+                        <div class="col-7" style="margin:inherit">
+                            <div class="row app_name_div">
+                                <div class="app_tech_name d-none"><t class="technical_name" t-esc="app.technical_name"/></div>
+                                <span class="app_name app_name_card mb-1"><t t-esc="app.name[0:15]"/></span>
+                            </div>
+                            <t t-if="app.categ_id">                                                
+                                <div class="row cateq_name_div" >
+                                    <div class="cateq_name_back d-flex"><span style="margin-left: -10px; margin-right: -10px;"><t t-esc="app.categ_id.name and app.categ_id.name[:8]"/></span></div>
+                                </div>
+                            </t>
+                            <t t-if="app.description">
+                                <div class="row" style="font-size: 0.7rem;">
+                                    <t t-esc="app.description[:50]"/>
+                                </div>
+                            </t>
+                            <div class="row app_price_div">
+                                <span class="span_price"><span class="price" style="white-space: nowrap;"><t t-esc="app.price" /></span> <span itemprop="priceCurrency" t-esc="company.currency_id.name"/><t t-if="is_users"><t t-if="costing_nature == 'per_user'"> /Per User</t><t t-else=""> /Per Month</t></t><t t-else=""><t t-if="is_fixed_users  and costing_nature == 'per_user'"> /Per User</t><t t-else=""> /Per Month</t></t></span>
+                            </div>
+                            <div class="row select_button_div">
+                                <button class="select_button" type="button"><span class="select_apps_text">Select Apps <img class="select_button_icon" src="/saas_kit_custom_plans/static/src/img/icon-arrow-right.svg"></img></span></button>
+                                <button class="selected_button" type="button"><span class="selected_apps_text"><img class="select_button_icon" src="/saas_kit_custom_plans/static/src/img/icon-check-circle.svg"></img> Selected</span></button>
+                                <button class="remove_button" type="button"><span class="remove_apps_text"><img class="select_button_icon" src="/saas_kit_custom_plans/static/src/img/icon-trash.svg"></img> Remove</span></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </t>
+        </div>
+    </template>
+
+    <template id="category_view_template" name="Category View Template">
+        <div class="js_sale d-flex col-lg-9 col-sm-12 col-md-12 align-content-start flex-wrap" id="category_view_main_div">
+            <t t-foreach="categories" t-as="category">
+                <div class="align-content-start col-sm-12 col-md-12">
+                    <div class="d-flex" id="category_tag_name_div">
+                        <span id="category_tag_name_span" style="margin-left: 10px;"><t t-esc="category" /></span>
+                        <div id="left_arrow"></div>
+                    </div>                                    
+                    <div class="js_sale d-flex align-content-start flex-wrap" style="flex-flow: row wrap; padding:2%;">                                                                        
+                        <t t-foreach="categories[category]" t-as="app">
+                            <div class="col-lg-4 col-md-4 col-sm-6 col-12" style="margin-bottom: 2%;  ">
+                                <div class="app_card d-flex" t-att-id="app.technical_name+'_main'">
+                                    <div class="col-3">
+                                        <span t-field="app.image" class="app_image" t-options="{'widget': 'image', 'qweb_img_responsive': False, 'class': 'rounded o_image_64_max app_image_saas'}"/>
+                                    </div>
+                                    <div class="col-7" style="margin:inherit">
+                                        <div class="row app_name_div" >
+                                            <div class="app_tech_name d-none"><t class="technical_name" t-esc="app.technical_name"/></div>
+                                            <span class="app_name app_name_card mb-1"><t t-esc="app.name[0:15]"/></span>
+                                        </div>
+                                        <t t-if="app.description">
+                                            <div class="row" style="font-size: 0.7rem;">
+                                                <t t-esc="app.description[:50]"/>
+                                            </div>
+                                        </t>
+                                        <div class="row app_price_div">
+                                            <span class="span_price"><span class="price" style="white-space: nowrap;"><t t-esc="app.price" /></span> <span itemprop="priceCurrency" t-esc="company.currency_id.name"/><t t-if="is_users"><t t-if="costing_nature == 'per_user'"> /Per User</t><t t-else=""> /Per Month</t></t><t t-else=""><t t-if="is_fixed_users  and costing_nature == 'per_user'"> /Per User</t><t t-else=""> /Per Month</t></t></span>
+                                        </div>
+                                        <div class="row select_button_div">
+                                            <button class="select_button" type="button"><span class="select_apps_text">Select Apps <img class="select_button_icon" src="/saas_kit_custom_plans/static/src/img/icon-arrow-right.svg"></img></span></button>
+                                            <button class="selected_button" type="button"><span class="selected_apps_text"><img class="select_button_icon" src="/saas_kit_custom_plans/static/src/img/icon-check-circle.svg"></img> Selected</span></button>
+                                            <button class="remove_button" type="button"><span class="remove_apps_text"><img class="select_button_icon" src="/saas_kit_custom_plans/static/src/img/icon-trash.svg"></img> Remove</span></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </t>
+                    </div>
+                </div>                                    
+            </t>
+        </div>
+    </template>
+
+    <template id="select_apps_section" name="Select Apps Section">
+        <div class="col-lg-3 col-sm-6 col-md-4" id="right_block">
+            <div class="product_title_head d-flex" id="selected_content">
+                <div id="selected_text">
+                    <span>
+                        Selected Apps
+                    </span>
+                </div>
+                <div id="selected_number" class="d-flex">
+                    <span id="total_apps_count">00</span>
+                </div>
+            </div>
+            <div id="apps_complete_details" class="d-flex">
+                <div class="line_div">
+                    <div class="node_head_main"></div>
+                    <div id="line_complete"></div>
+                    <div class="node_head_main"></div>
+                </div>
+                <div class="line_nodes_div" id="test_line_nodes_div">
+                </div>
+                <div class="apps_detail_div" id="test_apps_detail_div">
+                    <div class="d-flex" id="view_more_apps_div">
+                        <button id="view_more_apps">
+                            View All Apps
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <t t-if="is_users">
+                <div class="user_div d-flex" >
+                    <div id="user_selection">
+                        <div class="form-group" style="margin-left: 30px;">
+                            <label id="number_of_user_label" for="number_of_users">NO. OF USERS:</label>
+                            <!-- <t t-if="max_users>=1">
+                                <input class="form-control oe_inline" id="number_of_users" type="number" min="1" t-att-max="max_users" value="1"/>
+                            </t>
+                            <t t-if="max_users==-1">
+                                <input class="form-control oe_inline" id="number_of_users" type="number" min="1" value="1"/>
+                            </t> -->
+                            <input class="form-control oe_inline" id="number_of_users" type="number" min="1" value="1"/>
+                        </div>
+                    </div>
+                    <div id="user_price" class="d-flex">
+                        <div id="price_text" >
+                            <span id="user_price_span"><t t-esc="user_cost"/> </span> <span><t t-esc="company.currency_id.name" /></span>/Per User
+                        </div>
+                    </div>
+                </div>
+            </t>
+            <div id="border">
+            </div>
+            <t t-if="is_free_users and free_users and is_users">
+                <div style="height: 40px;" class="free_user" id="free_users_div">
+                    <div style="margin-top:2%; margin-left:8%; font-size: 17px; float:right;" class="d-flex fw-bold free_users_name">
+                        <t t-if="free_users == 1">
+                            <span id="free_user" class="free_users_text" style="margin-right:4%;"> <t t-esc="free_users"></t></span>  user is Free ... !
+                        </t>
+                        <t t-else="">
+                            <span id="free_users" class="free_users_text" style="margin-right:4%;"> <t t-esc="free_users"></t></span>  users are Free ... !
+                        </t>
+                    </div>
+                </div>
+                <div id='border_name' style="border: 1px solid #E0E0E0; height:1px;" class=".bg-secondary">
+                </div>
+            </t>
+            <div id="total_pricing">
+                <div id="total_app_price" class="d-flex">
+                    <div id="total_app_price_text" class="cost_text">
+                        Total App Price :
+                    </div>
+                    <div id="total_app_value" class="cost_value">
+                        <span id="total_app_value_span">00 </span><span><t t-esc="company.currency_id.name" /></span>
+                    </div>
+                </div>
+                <t t-if="is_users">
+                    <div id="total_user_cost" class="d-flex">
+                        <div id="total_user_price_text" class="cost_text">
+                            Users Price :
+                        </div>
+                        <div id="total_users_value" class="cost_value">
+                            <span id="total_users_value_span"><t t-esc="is_free_users and '00' or user_cost"/> </span><span><t t-esc="company.currency_id.name"/></span>
+                        </div>
+                    </div>
+                </t>
+                <t t-if="annual_discount">
+                    <div id="discount" style="display:none;">
+                        <div id="discount_value_text" class="cost_text" style="margin-left:1px;">
+                            Yearly Discount(<span><t t-esc="discount_percent"/></span>%):
+                        </div>
+                        <div id="discount_value" class="cost_value">
+                            <span id="discount_value_span"><t t-esc="'00' or discount_value_span"/></span> <span><t t-esc="company.currency_id.name"/></span>
+                        </div>
+                    </div>
+                </t>
+                <div id="final_cost" class="d-flex">
+                    <div id="final_cost_text" class="cost_text">
+                        Total :
+                    </div>
+                    <t t-if="is_users">
+                        <div id="final_cost_value" class="cost_value">
+                            <span id="final_cost_value_span"><t t-esc="is_free_users and '00' or user_cost"/> </span><span><t t-esc="company.currency_id.name"/></span>
+                        </div>
+                    </t>
+                    <t t-else="">
+                        <div id="final_cost_value" class="cost_value">
+                            <span id="final_cost_value_span"><t t-esc="'00'"/> </span><span><t t-esc="company.currency_id.name"/></span>
+                        </div>
+                    </t>
+                </div>
+            </div>
+            <div id="submit_buttons">
+                <t t-if="is_users">
+                    <button id="buy_now">Buy For <span id="pay_now_value_span"><t t-esc="is_free_users and '00' or user_cost" /> </span><span><t t-esc="company.currency_id.name"/></span></button>
+                </t>
+                <t t-else="">
+                    <button id="buy_now">Buy For <span id="pay_now_value_span"><t t-esc='00' /> </span><span><t t-esc="company.currency_id.name"/></span></button>
+
+                </t>
+                    <!-- <button id="trial_now">Get these apps on 2 days Trial</button> -->
+            </div>
+            <div id="error_message" class='alert alert-warning' style="display:none;">
+                The selected products is/are currently unavailable!!  Please contact Admin.
+            </div>
+        </div>
+    </template>
+</odoo> 

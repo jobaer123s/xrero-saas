@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (c) 2016-Present Webkul Software Pvt. Ltd. (<https://webkul.com/>) -->
+<!-- See LICENSE file for full copyright and licensing details. -->
+<!-- License URL : <https://store.webkul.com/license.html/> -->
+
+<odoo>
+    <template id="subdomain_page">
+        <t t-call="website.layout">
+            <t t-set="title">SaaS Domain</t>
+            <div class="domain_mapping_page_div" style="padding: 5%;">
+                <span style="margin-left: 1%; font-family: 'Source Sans Pro', sans-serif; font-size: 26px; font-weight: 600;">Choose Your Domain Name</span>
+                
+                <p style="margin-left: 1%; font-family: 'Source Sans Pro', sans-serif; font-size: 16px;">Select your subdomain name for your SAAS Instance and from where your customers will access your store..</p>
+                <form class="col-md-6 col-md-offset-3">
+
+                    <span id="contract_id" t-att-value="contract_id"></span>
+
+                    <div class="input-group">
+                        <input id="subdomain_name" style="border: 1px solid #999999;" type="text" class="form-control" name="msg" placeholder="Subdomain name"/>
+                        <div class="input-group-addon">
+                            <span id="domain_name" style="border: 1px solid #999999;" class="input-group-text">.<t t-esc="base_url"/></span>
+                        </div>
+                    </div>
+                    <span id="domain_error" style="display : none; font-family: 'Source Sans Pro',  sans-serif; font-style: italic; color: #FA1010; font-size: 16px;">Please enter domain name in only [a-zA-Z0-9] or [a-zA-Z0-9_.-] format with no blank spaces.</span>
+                    <span id="taken_warning" style="display : none; font-family: 'Source Sans Pro',  sans-serif; font-style: italic; color: #FA1010; font-size: 16px;">Domain already taken. Plese enter some other domain name.</span>
+                    <span id="taken_error" style="display : none; font-family: 'Source Sans Pro',  sans-serif; font-style: italic; color: #FA1010; font-size: 16px;">Could Not Create Odoo Instance!! Please contact Admin.</span>
+                    <br/>
+                    <button type="button" class="btn confirm_domain" style="background: #7C7BAD; font-family: 'Source Sans Pro', sans-serif; color: #FFFFFF; font-size: 15px;">Select &amp; Continue</button>
+                    <a id="status_link" style="display:none;" t-attf-href="/my/saas/contract/#{contract_id}">Click here to check the status of your contract</a>
+                </form>
+            </div>
+        </t>
+    </template>
+    
+    <template id="redirect_page">
+        <t t-call="website.layout">
+            <t t-set="title">Successful</t>
+            <div class="text-center redirect_page_div" style="padding: 5%;">
+                <div>
+                    <img src="/odoo_saas_kit/static/src/img/icon.svg"></img>
+                </div>
+                <p style="font-family: 'Source Sans Pro', sans-serif; font-size: 26px; font-weight: 600;">Instance Successfully Created</p>
+                <span style="font-family: 'Source Sans Pro', sans-serif; font-size: 16px; color: rgba(0, 0, 0, 0.8);">We have sent you an E-Mail having url to reset password for your Instance.</span>
+                <br/>
+                <span style="font-family: 'Source Sans Pro', sans-serif; font-size: 16px; color: rgba(0, 0, 0, 0.8);">If you did not received E-mail please go to your Account and post a message on the associated Contract.</span>
+                <br/>
+                <span style="font-family: 'Source Sans Pro', sans-serif; font-size: 16px; color: rgba(0, 0, 0, 0.8);">OR</span>
+                <br/>
+                <button type="button" class="btn go_to_account" t-att-value="contract_id" style="background: #7C7BAD; font-family: 'Source Sans Pro', sans-serif; color: #FFFFFF; font-size: 15px;">Reset Password</button>
+                <br/>
+                <br/>
+                <span style="font-family: 'Source Sans Pro', sans-serif; font-size: 16px; color: rgba(0, 0, 0, 0.8);">Click below link to check and update your contract</span>
+                <br/>
+                <a id="status_link" t-attf-href="#{status_url}" t-out="status_url"></a>
+            </div>
+        </t>
+    </template>
+</odoo>

@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (c) 2016-Present Webkul Software Pvt. Ltd. (<https://webkul.com/>) -->
+<!-- See LICENSE file for full copyright and licensing details. -->
+<!-- License URL : <https://store.webkul.com/license.html/> -->
+
+<odoo>
+    <data>
+
+        <record id="saas_plan_action" model="ir.actions.act_window">
+            <field name="name">SaaS Plans</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">saas.plan</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <record id="saas_plan_tree_view" model="ir.ui.view">
+            <field name="name">Saas Plans</field>
+            <field name="model">saas.plan</field>
+            <field name="arch" type="xml">
+                <tree string="Plans">
+                    <field name="name" decoration-info="state == 'draft'" decoration-success="state =='confirm'" decoration-muted="state =='cancel'" decoration-bf='True'/>
+                    <field name="description"/>
+                    <field name="state" widget="badge" decoration-info="state == 'draft'" decoration-success="state =='confirm'" decoration-muted="state =='cancel'"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="saas_plan_search_view" model="ir.ui.view">
+            <field name="name">Saas Plans</field>
+            <field name="model">saas.plan</field>
+            <field name="arch" type="xml">
+                <search string="Active SaaS Plans">
+                    <filter name="archived" string="Archived" domain="[('active', '=', False)]" />
+                </search>
+            </field>
+        </record>
+
+        <record id="saas_plan_form_view" model="ir.ui.view">
+            <field name="name">Saas Plans</field>
+            <field name="model">saas.plan</field>
+            <field name="arch" type="xml">
+                <form string="plans">
+                    <header>
+
+                        <button string="Create DB Template" name="create_db_template" type="object" icon="fa-play" class="oe_highlight" invisible="state in ['confirm', 'cancel']"/>
+
+                        <button string="Skip This Step" name="force_confirm" type="object" icon="fa-forward" class="oe_highlight" invisible="(state in ['confirm', 'cancel']) or not db_template" help="Continue without creating new Db Template"/>
+
+                        <button type="action" name="odoo_saas_kit.action_wizard_contract_creation" string="Create Contract" help="Click to create a contract" icon="fa-play" class="oe_highlight" invisible="state in ['draft', 'cancel']"/>
+
+                        <button string="Login" name="login_to_db_template" type="object" icon="fa-sign-in" invisible="(state != 'confirm')"/>
+
+                        <button string="Restart" name="restart_db_template" type="object" icon="fa-refresh" invisible="(state != 'confirm')"/>
+
+                        <button type="action" name="odoo_saas_kit.action_wizard_plan_reset" string="Reset to draft"  invisible="state in ['draft', 'cancel']"/>
+                        <!-- <button string="Reset to draft" name="reset_to_draft" type="object" invisible="(state == 'cancel') or (state == 'draft')"/> -->
+                        
+                        <button string="Cancel" name="cancel_plan" type="object" class="btn btn-secondary" invisible="(state == 'cancel')"/>
+                        
+                        <button string="Drop DB" name="%(odoo_saas_kit.action_drop_db_plan_wizard)d" type="action" icon="fa-trash" class="oe_highlight" invisible="(state != 'cancel') or db_dropped"/>
+
+                        <button string="Install remaining Modules" name="install_remaining_modules" type="object" invisible="(state != 'confirm') or is_all_installed"/>
+                        
+                        <field name="state" widget="statusbar"/>
+                        <field name="db_dropped" invisible="1"/>
+                    </header>
+                    <sheet>
+                        <div class="oe_button_box" name="button_box">
+                            <button name="action_view_contracts"
+                                type="object"
+                                class="oe_stat_button"
+                                icon="fa-pencil-square-o"
+                                invisible="contract_count == 0">
+                                <field name="contract_count" widget="statinfo" string="Contracts"/>
+                            </button>
+                        </div>
+                        <!-- <div class="oe_left" style="width: 500px;">
+                            <field name="image" widget="image" class="oe_avatar oe_left"/>
+                            <div class="oe_title" style="width: 390px;">
+                                <label class="oe_edit_only" for="name" string="Name"/>
+                                <h1><field name="name" class="oe_inline" readonly':[('state','=','confirm'"/></h1>
+                                <label class="oe_edit_only" for="summary" string="Summary"/>
+                                <field name="summary" readonly':[('state','=','confirm'"/>
+                            </div>
+                        </div> -->
+
+                        <field name="active" invisible="1" />
+                        <div style="height:95px">
+                            <field name="image" widget="image" class="oe_avatar float-start"/>
+                            <div style="margin-left:120px">
+                            <label class="oe_edit_only" for="name" string="Name"/>
+                            <h1 ><field name="name" readonly="state == 'confirm'"/></h1>
+                            <label class="oe_edit_only" for="summary" string="Summary"/>
+                            <!-- <div> -->
+                                <field name="summary" readonly="state == 'confirm'"/>
+                            <!-- </div> -->
+                            </div>
+                        </div>
+                        <group >
+                            <group string="SaaS Server">
+                                <field name="is_multi_server" invisible="1"/>
+                                <field name="server_id" options="{'no_create': True, 'no_create_edit':True}" required="1" readonly="state == 'confirm'"/>
+                                <label for="is_multi_server" />
+                                <div>
+                                    <field name="is_multi_server" class="oe_inline" readonly="state == 'confirm'"/>
+                                </div>
+                            </group>
+                            <group invisible="not is_multi_server">
+                            </group>
+                            <span class="text-muted" invisible="not is_multi_server">Please Select the Servers in Remote Server Tab to Deploy the clients.</span>
+                            
+                            <group></group>
+                            
+                            <group>
+                                <label for="db_template"/>
+                                <div>
+                                    <span class="ms-3" invisible="state == 'confirm'">template_</span><field class="oe_inline" name="db_template" readonly="state == 'confirm'"/>
+                                </div>
+
+                                <field name="container_id" invisible="state != 'confirm'" readonly="state == 'confirm'"/>
+                                <field name="use_specific_user_template" invisible="state != 'confirm'"/>
+                                <field name="template_user_id" invisible="not use_specific_user_template" required="use_specific_user_template"/>
+                                <label for="is_all_installed" invisible="(state != 'confirm')"/>
+                                <div>
+                                    <field name="is_all_installed" class="oe_inline" invisible="(state != 'confirm')" readonly="1"/>
+                                </div>
+                            </group>
+                        </group>
+
+                        <span class="text-muted" invisible="(state == 'confirm') or not db_template">Note : If you already have a template created and wants to skip db creation step, please click on "Skip this step".</span>
+                        <span class="text-muted" invisible="(state == 'confirm') or not use_specific_user_template">Note: Enter the user_id of user (from DB tepmplate of this plan)in "Database Template User ID" whose permission you want to grant to the user of odoo instances which is going to be created by this plan.</span>
+
+                        <group>
+                            <group string="Plan Settings">
+                                <label for="recurring_interval" />
+                                <div>
+                                    <span class="oe_inline">
+                                        Repeat Every
+                                    </span>
+                                    <field name="recurring_interval"
+                                        class="oe_inline"
+                                        required="True" readonly="state == 'confirm'"/>
+                                    <field name="recurring_rule_type"
+                                        class="oe_inline"
+                                        required="True" readonly="True"/>
+                                </div>
+                                <field name="trial_period" readonly="state == 'confirm'"/>
+                                <label for="per_user_pricing" readonly="state == 'confirm'"/>
+                                <div>
+                                    <field class ="oe_inline" name="per_user_pricing" readonly="state == 'confirm'"/>                                    
+                                    <field class="oe_inline" name="user_cost" required="per_user_pricing" invisible="not per_user_pricing" readonly="state == 'confirm'"/>
+                                    <span class="oe_inline" invisible="not per_user_pricing">
+                                    PUPC(Per User Per Cycle)
+                                    </span>
+                                </div>
+                            </group>
+                        </group>
+                                <span class="text-muted" invisible="state != 'draft'">Note: Select user Based Pricing field to enable user based costing.</span>
+                        <group class="mt-4">
+                            <group>
+                                <field name="min_users" required="per_user_pricing" invisible="not per_user_pricing" readonly="state == 'confirm'" />
+                                <field name="max_users" required="per_user_pricing" invisible="not per_user_pricing" readonly="state == 'confirm'" />
+                                
+                                <label for="due_users_price" invisible="not per_user_pricing or (recurring_interval == 1)"/>
+                                <div invisible="not per_user_pricing or (recurring_interval == 1)">
+                                    <field class ="oe_inline" name="due_users_price" readonly="state == 'confirm'" />
+                                    <span class="oe_inline"> Per Month</span>
+                                </div>
+                                <field name="user_product" required="per_user_pricing" invisible="not per_user_pricing" options="{'no_create': True, 'no_create_edit':True}"/>                                
+                            </group>
+                            <!-- <group invisible="not per_user_pricing or (state != 'draft')"></group> -->
+                            <!-- <div invisible="not per_user_pricing or (state != 'draft')"> -->
+                            <!-- <span class="text-muted" invisible="not per_user_pricing or (state != 'draft')">Select a product to calculate user pricing in website whose "User pricing" must be checked and not related to any plan.</span><br/> -->
+                            <!-- </div> -->
+                            <!-- <group></group> -->
+                            <!-- <group>
+                                <span invisible="not per_user_pricing or (state != 'draft')"></span>
+                                <field name="saas_base_url" readonly="state == 'confirm'"/>
+                            </group> -->
+                        </group>
+                        <span class="text-muted" invisible="not per_user_pricing or (state != 'draft')">Select a product to calculate user pricing in website whose "User pricing" must be checked and not related to any plan.</span>
+                        <group class="mt-3" invisible="not per_user_pricing or (state != 'draft')">
+                            <span></span>
+                            <span class="text-muted">Notes:</span>
+                            <span></span>
+                            <span class="text-muted">1. Minimum numbers of user shows that client have to be charge for minimum user.</span>
+                            <span></span>
+                            <span class="text-muted">2. End user is not allowed to create users more than Max No. of users.</span>
+                            <span></span>
+                            <span class="text-muted">3. Enter -1 in Max. No. of users to let the end user create inifinite number of users.</span>
+                            <span></span>
+                            <span class="text-muted">4. Billing of extra users created in client's instance will be included in next month invoice.</span>
+                        </group>
+                        <group>
+                            <group>
+                                <field name="saas_base_url" readonly="state == 'confirm'"/>
+                            </group>
+                        </group>
+                
+                        <notebook>
+                            <page id="saas_module_ids_page" string="Related Modules">
+                                <field name="saas_module_ids" string="Related Modules" editable="bottom" readonly="state == 'confirm'">
+                                    <tree string="Related Modules">
+                                        <field name="name"/>
+                                        <field name="technical_name"/>
+                                        <field name="categ_id"/>
+                                    </tree>
+                                </field>
+                            </page>
+                            <page string="Installed Modules">
+                                <field name="modules_status_ids" string="Installed Modules" readonly="1">
+                                    <tree string="Installed Modules" invisible="status != 'installed'">
+                                        <!-- <field name="name"/> -->
+                                        <field name="technical_name"/>
+                                        <field name="status"/>
+                                    </tree>
+                                </field>
+                            </page>
+                            <page string="Remote Servers" name="server_page" invisible="not is_multi_server">
+                                <group>
+                                    <group>
+                                        <field name="default_saas_servers_ids" widget="Many2many_tags" invisible="not is_multi_server" required="is_multi_server">
+                                            <tree editable="bottom">
+                                                <field name="server_id" required="1" options="{'no_create': True, 'no_create_edit':True}"/>
+                                                <field name="priority" />
+                                            </tree>
+                                        </field>
+                                    </group>
+                                </group>
+                            </page>
+                            <page string="Related Products">
+                                <field name="product_template_ids" readonly="1" string="Related Products">
+                                    <tree string="Related Products">
+                                        <field name="name" help="These products can be used to sell this plan."/>
+                                        <field name="default_code" help="These products can be used to sell this plan."/>
+                                        <field name="list_price" help="These products can be used to sell this plan."/>
+                                    </tree>
+                                </field>
+                            </page>
+                            <page string="Description">
+                                <field name="description"/>
+                            </page>
+                        </notebook>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers"/>
+                        <field name="activity_ids" widget="mail_activity"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+    </data>
+</odoo>

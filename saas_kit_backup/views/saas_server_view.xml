@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (c) 2016-Present Webkul Software Pvt. Ltd. (<https://webkul.com/>) -->
+<!-- See LICENSE file for full copyright and licensing details. -->
+<!-- License URL : <https://store.webkul.com/license.html/> -->
+
+<odoo>
+    <data>
+        <record id="saas_server_inherit_form_view" model="ir.ui.view">
+            <field name="name">Backup Server From View</field>
+            <field name="model">saas.server</field>
+            <field name="inherit_id" ref="odoo_saas_kit.saas_server_form_view" />
+            <field name="arch" type="xml">
+                <xpath expr="//sheet/group/group[3]" position="after">
+                    <group string="Backup Details" name="backup_details">
+                        <field name="backup_location" readonly="1"/>
+                    </group>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

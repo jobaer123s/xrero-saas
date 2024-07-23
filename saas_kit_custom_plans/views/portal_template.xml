@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (c) 2016-Present Webkul Software Pvt. Ltd. (<https://webkul.com/>) -->
+<!-- See LICENSE file for full copyright and licensing details. -->
+<!-- License URL : <https://store.webkul.com/license.html/> -->
+
+<odoo>
+    <template id="portal_apps_inherit_template" inherit_id="odoo_saas_kit.portal_contract_page">
+        <xpath expr="//div[hasclass('col-12')]/section/table/div[@id='portal_apps']" position="after">
+        <!-- <xpath expr="//table[@id='saas_apps_table']/tbody" position="inside"> -->
+            <t t-if="contract.state=='confirm'">
+                <tbody id="add_apps_button">
+                    <tr id="add_apps_row_id" class="contract_apps_data_row">
+                        <td id="add_apps_td_1" class="add_apps_tr d-flex">
+                            <div class="d-flex">
+                                <button id="add_apps_icon_div">
+                                    <img id ="" src="/saas_kit_custom_plans/static/src/img/add_black_24dp.svg"></img>
+                                </button>
+                            </div>
+                            <div id="add_apps_div" invisible="(contract.state != 'confirm')">
+                                <span id="add_app_span_1">Add Apps</span><br/>
+                                <span id="add_app_span_2">Add another app to your contract</span>
+                            </div>
+                        </td>
+                        <td id="add_apps_td_2" class="add_apps_tr">
+                        </td>
+                        <td id="add_apps_td_3" class="add_apps_tr">
+                        </td>
+                        <td id="add_apps_td_3" class="add_apps_tr">
+                        </td>
+                    </tr>
+                </tbody>
+            </t>
+                <!-- <h5 class="text-right">
+                    <a href="#" class="text-center" id="modal_for_apps"><strong>ADD APPS</strong></a>
+                </h5> -->
+        </xpath>
+    </template>
+
+    <template id="portal_apps_modal_inherit_template" inherit_id="odoo_saas_kit.portal_contract_page">
+        <xpath expr="//div[hasclass('col-12')]/section/table" position="after">
+            <div class="modal fade" id="add_apps" >
+                <div class="modal-dialog modal-md">
+                    <div class="modal-content" style="overflow: scroll;">
+                        <div class="modal-header" style="margin-top:3%;">
+                            <div class="modal-title" id="add_app_text">Add Apps
+                            </div>
+                        </div>
+                        <div class="row d-flex" style="padding-left: 6%; padding-right: 6%; overflow: scroll; width: 103%;">
+                            <table class="" id="apps_to_add" style="width: 100%;">
+                                <thead id="head_apps_to_add">
+                                    <tr id="apps_to_add_table_head_tr" style="border-bottom: 1px solid rgba(0, 0, 0, 0.2);">
+                                        <th class="apps_to_add_thead_label">
+                                            APP DETAILS
+                                        </th>
+                                        <th class="apps_to_add_thead_label">
+                                            PRICE
+                                        </th>
+                                        <th class="apps_to_add_thead_label">
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <t t-foreach="contract.update_saas_module_ids" t-as="module">
+                                        <tr class="apps_to_add_data_row" style="border-bottom: 1px solid rgba(0, 0, 0, 0.1);">
+                                            <th id="module_name" class="">
+                                                <div style="">
+                                                    <span t-if="not request.env.user._is_public()">
+                                                    <span class="apps_to_add_data_image" t-field="module.image" t-options="{'widget': 'image', 'class': 'img-rounded', 'style':'width: 48px;height:48px'}"/>
+                                                    </span><span class="apps_to_add_module_name" t-esc="module.name" />
+                                                </div>
+                                            </th>
+                                            <th class="">
+                                                <div class="apps_to_add_module_price_div">
+                                                    <span class="apps_to_add_module_price" style="margin-left: 7px;" t-field="module.price"/> <span itemprop="priceCurrency" t-esc="contract.company_id.currency_id.name"/>
+                                                </div>
+                                            </th>
+                                            <th class="apps_to_add_img_row">
+                                                <div class="d-flex">
+                                                    <div class="apps_to_add_tech_name d-none"><t t-esc="module.technical_name"/></div>
+                                                    <button class="apps_to_select_button" style="background: none; border: none; " t-att-data-technicalName="module.technical_name">
+                                                        <img class="apps_to_select_img" src="/saas_kit_custom_plans/static/src/img/check-inactive.svg"></img>                                                
+                                                    </button>
+                                                    <button class="apps_selected_button">
+                                                        <img class="apps_selected_img" src="/saas_kit_custom_plans/static/src/img/check-active.svg"></img>                                                
+                                                    </button>
+                                                </div>
+                                            </th>
+                                        </tr>
+                                    </t>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn mr-auto" data-bs-dismiss="modal">Discard</button>
+                            <button type="button" class="btn btn" style="background-color:#55D237; color: #FFFFFF !important;" id="add_apps_submit" t-att-value="contract.id">Add Apps</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </xpath>
+
+        <xpath expr="//div[hasclass('col-12')]/section/table/thead/tr/th[3]" position="after">
+            <th class="contract_apps_thead_label" style="border: none;">
+                Status
+            </th>
+        </xpath>
+    </template>
+
+    <template id="portal_apps_status_inherit_template" inherit_id="odoo_saas_kit.portal_apps_template">
+        <xpath expr="//tbody/t/tr/th[3]" position="after">
+            <t t-set="status">uninstalled</t>
+            <t t-foreach="contract.saas_client.saas_module_ids" t-as="client_module">
+                <t t-if="client_module.technical_name == module.technical_name">
+                    <t t-set="status" t-value="client_module.status" />                
+                </t>
+            </t>
+            <th class="text-right">
+                <div class="contract_apps_status_div_text_installed d-flex" style="margin-top: 22px;" t-if="status=='installed'">
+                    <!-- <div> -->
+                        <span class="contract_apps_span_status_text"><t t-esc="status" /></span>
+                    <!-- </div> -->
+                </div>
+                <div class="contract_apps_status_div_text_uninstalled d-flex" style="margin-top: 22px;" t-if="status=='uninstalled'">
+                    <!-- <div> -->
+                        <span class="contract_apps_span_status_text"><t t-esc="status" /></span>
+                    <!-- </div> -->
+                </div>
+            </th>
+        </xpath>
+    </template>
+</odoo>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (c) 2016-Present Webkul Software Pvt. Ltd. (<https://webkul.com/>) -->
+<!-- See LICENSE file for full copyright and licensing details. -->
+<!-- License URL : <https://store.webkul.com/license.html/> -->
+
+<odoo>
+    <data>
+        <record id="plan_form_inherit_view" model="ir.ui.view">
+            <field name="name">Plan Inherit</field>
+            <field name="model">saas.plan</field>
+            <field name="inherit_id" ref="odoo_saas_kit.saas_plan_form_view"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='server_id']" position="after">
+                    <label for="provide_odoo_version"/>
+                    <div>
+                        <field name="provide_odoo_version" class="oe_inline" readonly="(state != 'draft')"/>
+                        <!-- , 'invisible': [('state', '!=', 'draft'), ('provide_odoo_version','=', False)] -->
+                    </div>
+                    <label for="plan_odoo_version" readonly="(state != 'draft')" invisible="(not provide_odoo_version)"/>
+                    <div readonly="(state != 'draft')" invisible="(not provide_odoo_version)">
+                        <field name="plan_odoo_version" class="oe_inline" required="(provide_odoo_version)" readonly="(state != 'draft')"/>
+                    </div>
+                    <field name="odoo_version_code" invisible="(False)"/>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

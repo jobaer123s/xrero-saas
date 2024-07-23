@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (c) 2016-Present Webkul Software Pvt. Ltd. (<https://webkul.com/>) -->
+<!-- See LICENSE file for full copyright and licensing details. -->
+<!-- License URL : <https://store.webkul.com/license.html/> -->
+
+<odoo>
+    <data>
+        <record id="saas_client_backup_form_view" model="ir.ui.view">
+            <field name="name">Client Inherit Form</field>
+            <field name="model">saas.client</field>
+            <field name="inherit_id" ref="odoo_saas_kit.saas_client_form_view" />
+            <field name="arch" type="xml">
+                <xpath expr="//button[@name='fetch_client_url']" position="after">
+                    <field name="is_crone_ignited" invisible="1"/>
+                    <field name="crone_state" invisible="1"/>
+                    <!-- <button string="Create Backup Process" name="saas_kit_backup.backup_process_wizard_action" type="action" class="oe_highlight" attrs="{'invisible':[('crone_state', '!=', 'cancel'), '|', ('state', '!=', 'started'), ('backup_process_id', '!=', False)]}"/>                     -->
+                    <button string="Create Backup Process" name="saas_kit_backup.backup_process_wizard_action" type="action" class="oe_highlight" invisible="(crone_state != 'cancel') and (state != 'started') or (backup_process_id)"/>                    
+                    <button string="Update Backup Process" name="update_backup_process" type="object" class="oe_highlight" invisible="(state != 'started') or (not backup_process_id) or (crone_state == 'cancel')"/>                    
+                    <button type="object" string="Cancel Backup Process" name="cancel_backup_process" invisible="(state != 'started') or (not backup_process_id) or (crone_state == 'cancel')" />
+                </xpath>
+                <xpath expr="//page[2]" position="after">
+                    <page name="backup_details" string="Backup Details" invisible="(not backup_process_id)">
+                        <group name="outer_left">
+                            <group name="inner_left">
+                                <field name="backup_process_id" />
+                            </group>
+                        </group>
+                    </page>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (c) 2016-Present Webkul Software Pvt. Ltd. (<https://webkul.com/>) -->
+<!-- See LICENSE file for full copyright and licensing details. -->
+<!-- License URL : <https://store.webkul.com/license.html/> -->
+
+<odoo>
+    <data>
+        <record id="saas_trail_product_inherit_view" model="ir.ui.view">
+            <field name="name">saas.trial.plan.inherit.form</field>
+            <field name="model">product.product</field>
+            <field name="inherit_id" ref="product.product_normal_form_view" />
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='detailed_type']" position="after">
+                    <field name="is_trial_price" invisible="(saas_plan_id) or (is_user_pricing)" />
+                </xpath>
+
+                <xpath expr="//field[@name='is_user_pricing']" position="attributes">
+                    <attribute name="invisible">(saas_plan_id) or (is_trial_price)</attribute>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

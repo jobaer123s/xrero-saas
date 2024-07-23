@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (c) 2016-Present Webkul Software Pvt. Ltd. (<https://webkul.com/>) -->
+<!-- See LICENSE file for full copyright and licensing details. -->
+<!-- License URL : <https://store.webkul.com/license.html/> -->
+
+<odoo>
+    <data>
+        <template id="assets_frontend" name="custom_plan_assests_frontend" inherit_id="website.assets_frontend">
+            <xpath expr="script[last()]" position="after">
+                <script type="text/javascript" src="/saas_kit_backup/static/src/js/backup_process.js"></script>
+                <link rel="stylesheet" href="/saas_kit_backup/static/src/css/backup_process.css"/>
+            </xpath>
+        </template>
+    </data>
+</odoo>

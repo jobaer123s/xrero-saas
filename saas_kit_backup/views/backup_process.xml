@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (c) 2016-Present Webkul Software Pvt. Ltd. (<https://webkul.com/>) -->
+<!-- See LICENSE file for full copyright and licensing details. -->
+<!-- License URL : <https://store.webkul.com/license.html/> -->
+
+<odoo>
+    <data>
+        <record id="backup_process_inherit_form" model="ir.ui.view">
+            <field name="name">Backup Process Form</field>
+            <field name="model">backup.process</field>
+            <field name="inherit_id" ref="wk_backup_restore.backup_process_form_view"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='master_pass']" position="replace">
+                    <field name="saas_client_id" invisible="1" />
+                    <field name="master_pass" password="1" required="(not saas_client_id)"/>                    
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (c) 2016-Present Webkul Software Pvt. Ltd. (<https://webkul.com/>) -->
+<!-- See LICENSE file for full copyright and licensing details. -->
+<!-- License URL : <https://store.webkul.com/license.html/> -->
+
+<odoo>
+    <data>
+        <record id="odoo_version_form_view" model="ir.ui.view">
+            <field name="name">odoo.version.form.view</field>
+            <field name="model">saas.odoo.version</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                        <button name="create_db_template" string="Create Template" type="object" class="oe_highlight" invisible="(state != 'open')" />
+                        <field name="state" widget="statusbar" />
+                        <button name="login_to_template" string="Login" type="object" icon="fa-sign-in" invisible="(state != 'confirm')" />
+                        <button string="Drop DB" name="%(saas_kit_custom_plans.action_drop_odoo_version_db_wizard)d" type="action" icon="fa-trash" class="oe_highlight" invisible="(state != 'cancel') or (is_drop_db)"/>
+                        <button string="Cancel" name="cancel_odoo_version" type="object" class="btn btn-secondary" invisible="(state == 'cancel')"/>
+                    </header>
+                    <sheet>
+                        <group name="main_1">
+                            <group name="inner_1">
+                                <field name="name" required="1"/>
+                                <field name="code" required="1"/>
+                                <field name="db_template" />
+                                <field name="is_multi_server" />
+                                <field name="product_id" required="1" />
+                                <field name="use_specific_user_template" invisible="(state != 'confirm')"/>
+                                <field name="template_user_id" invisible="(not use_specific_user_template)" required="(use_specific_user_template)"/>
+                                <field name="is_template_created" invisible="1"/>
+                                <field name="is_drop_db" invisible="1"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Remote Servers" name="remote_servers" invisible="(not is_multi_server)">
+                                <group>
+                                    <group>
+                                        <field name="default_saas_servers_ids" widget="Many2many_tags" required="(is_multi_server)">
+                                            <tree editable="bottom">
+                                                <field name="server_id" required="1" options="{'no_create': True, 'no_create_edit':True}"/>
+                                                <field name="priority" />
+                                            </tree>
+                                        </field>
+                                    </group>
+                                </group>
+                            </page>
+                        </notebook>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers"/>
+                        <field name="activity_ids" widget="mail_activity"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+        <record id="odoo_version_tree_view" model="ir.ui.view">
+            <field name="name">odoo.version.tree.view</field>
+            <field name="model">saas.odoo.version</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name" />
+                    <field name="code" />
+                </tree>
+            </field>
+        </record>
+
+        <record id="odoo_version_action_view" model="ir.actions.act_window">
+            <field name="name">Odoo version</field>
+            <field name="res_model">saas.odoo.version</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="odoo_version_tree_view" />
+        </record>
+    
+    </data>
+</odoo>

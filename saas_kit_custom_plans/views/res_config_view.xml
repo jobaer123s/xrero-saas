@@ -1,0 +1,338 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (c) 2016-Present Webkul Software Pvt. Ltd. (<https://webkul.com/>) -->
+<!-- See LICENSE file for full copyright and licensing details. -->
+<!-- License URL : <https://store.webkul.com/license.html/> -->
+
+<odoo>
+    <record id="res_config_settings_inheri_view_form" model="ir.ui.view">
+        <field name="name">res.config.setting.inherit.form.custom.plan</field>
+        <field name="model">res.config.settings</field>
+        <field name="priority" eval='21'/>
+        <field name="inherit_id" ref="base.res_config_settings_view_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//form" position="inside">
+
+                <app string="Custom Plan Page" data-string="Custom Plan Page" name="saas_kit_custom_plans">
+                <!-- <div class="app_settings_block saas_app_settings" string="Custom Plan Page" data-string="Custom Plan Page" data-key="saas_kit_custom_plans"> -->
+                    <!-- <h2>Configuration for Custom Plan Page</h2> -->
+                    <block title="Configuration for Custom Plan Page" class="saas_kit_custom_plans_setting_block" name="saas_kit__custom_plans_setting_container">
+                        <!-- <div class="row mt16 o_settings_container" id="custom_plan_config"> -->
+                            <setting class = "col-12" id="custom_plan_is_odoo_version" string="Provider Version Selection" help="Provide Odoo version selection feature to customer">
+                                <field name="is_odoo_version"/>
+                            </setting>
+                            <!-- <div class="col-xs-12 col-md-6 o_setting_box">
+                                <div class="o_setting_left_pane">
+                                    <field name="is_odoo_version"/>
+                                </div>
+                                <div class="o_setting_right_pane">
+                                    <label for="is_odoo_version" string="Provider Version Selection"/>
+                                    <div class="text-muted">
+                                        Provide Odoo version selection feature to customer
+                                    </div>
+                                </div>
+                            </div> -->
+
+                            <setting class = "col-12" id="custom_plan_o_setting_left_pane" string="Select apps view">
+                                <!-- <div class="o_setting_left_pane">
+                                </div> -->
+                                <!-- <div>
+                                </div> -->
+                                <div class="mt8 ">
+                                    <field name="apps_view" class="o_light_label" widget="radio" required="True"/>
+                                </div>
+                                <!-- </div> -->
+                            </setting>
+                            <!-- <div class="col-xs-12 col-md-6 o_setting_box">
+                                <div class="o_setting_left_pane">
+                                </div>
+                                <div class="o_setting_right_pane">
+                                    <label for="apps_view" string="Select apps view"/>                                
+                                    <div class="text-muted">
+                                    </div>
+                                    <div class="mt8">
+                                        <field name="apps_view" class="o_light_label" widget="radio" required="True"/>
+                                    </div>
+                                </div>
+                            </div> -->
+    
+                            
+
+
+                            <setting class = "col-12" id="custom_plan_is_users" string="Provide User Selection" help="Provide user selection feature to customer">
+                                <field name="is_users"/>
+                            </setting>
+                            <!-- <div class="col-xs-12 col-md-6 o_setting_box">
+                                <div class="o_setting_left_pane">
+                                    <field name="is_users"/>
+                                </div>
+                                <div class="o_setting_right_pane">
+                                    <label for="is_users" string="Provide User Selection"/>
+                                    <div class="text-muted">
+                                       Provide user selection feature to customer
+                                    </div>
+                                </div>
+                            </div> -->
+                            
+                            <setting class = "col-12" id="custom_plan_addons_path" help="This Path should exist on every Saas Server.">
+                                <!-- <div class="o_setting_left_pane">
+                                </div> -->
+                                <div class="oe_inline">
+                                    <!-- o_setting_right_pane -->
+                                    <div class="content-group" >
+                                        <div class="row">
+                                            <label for="addons_path" class="col-md-3 o_light_label"/>
+                                            <field name="addons_path" required="1"/>
+                                        </div>
+                                    </div>  
+                                    <!-- <div class="text-muted">
+                                        This Path should exist on every Saas Server.
+                                    </div>   -->
+                                </div>
+                            </setting>
+                            <!-- <div class="col-xs-12 col-md-6 o_setting_box">
+                                <div class="o_setting_left_pane">
+                                </div>
+                                <div class="o_setting_right_pane oe_inline">
+                                    <div class="content-group" >
+                                        <div class="row">
+                                            <label for="addons_path" class="col-md-3 o_light_label"/>
+                                            <field name="addons_path" required="1"/>
+                                        </div>
+                                    </div>  
+                                    <div class="text-muted">
+                                        This Path should exist on every Saas Server.
+                                    </div>  
+                                </div>
+                            </div> -->
+
+
+
+                            <setting class = "col-12" invisible="(not is_users)" id="custom_plan_addons_path" help="This Path should exist on every Saas Server.">
+                                <!-- <div class="o_setting_left_pane">
+                                </div> -->
+                                <div class="">
+                                    <!-- o_setting_right_pane -->
+                                    <div class="content-group">
+                                        <div class="row">
+                                            <label for="user_cost" class="col-md-4 o_light_label"/>
+                                            <field name="user_cost"/>
+                                            <div class="text-muted">
+                                                /Month
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </setting>
+                            
+                            <!-- <div class="col-xs-12 col-md-6 o_setting_box" invisible="(not is_users)">
+                                <div class="o_setting_left_pane">
+                                </div>
+                                <div class="o_setting_right_pane">
+                                    <div class="content-group">
+                                        <div class="row">
+                                            <label for="user_cost" class="col-md-4 o_light_label"/>
+                                            <field name="user_cost"/>
+                                            <div class="text-muted">
+                                                /Month
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div> -->
+    
+                            
+
+
+
+                            <setting class = "col-12" invisible="(not is_users)" id="custom_plan_addons_path" help="This Path should exist on every Saas Server.">
+                                <!-- <div class="o_setting_left_pane">
+                                </div> -->
+                                <div class="oe_inline">
+                                    <!-- o_setting_right_pane -->
+                                    <div class="content-group">
+                                        <div class="row">
+                                            <label for="max_users" class="col-md-3 o_light_label"/>
+                                            <field name="max_users"/>
+                                            <div class="text-muted">
+                                                Limit to purchase users, -1 shows customer can purchase unlimited users
+                                            </div>
+                                        </div>
+                                    </div>    
+                                </div>
+                            </setting>
+
+                            <!-- <div class="col-xs-12 col-md-6 o_setting_box" invisible="(not is_users)">
+                                <div class="o_setting_left_pane">
+                                </div>
+                                <div class="o_setting_right_pane oe_inline">
+                                    <div class="content-group">
+                                        <div class="row">
+                                            <label for="max_users" class="col-md-3 o_light_label"/>
+                                            <field name="max_users"/>
+                                            <div class="text-muted">
+                                                Limit to purchase users, -1 shows customer can purchase unlimited users
+                                            </div>
+                                        </div>
+                                    </div>    
+                                </div>
+                            </div> -->
+
+
+
+
+
+
+
+                            <setting class = "col-12" invisible="(not is_users)" id="custom_plan_is_free_users" string="Provider Free Users" help="Enable to provide Free users to your customer">
+                                <field name="is_free_users"/>
+                            </setting>
+                            <!-- <div class="col-xs-12 col-md-6 o_setting_box" invisible="(not is_users)">
+                                <div class="o_setting_left_pane">
+                                    <field name="is_free_users"/>
+                                </div>
+                                <div class="o_setting_right_pane">
+                                    <label for="is_free_users" string="Provider Free Users"/>
+                                    <div class="text-muted">
+                                        Enable to provide Free users to your customer
+                                    </div>
+                                </div>
+                            </div> -->
+
+
+
+                            <setting class = "col-12" invisible="(not is_free_users) or (not is_users)" id="custom_plan_addons_path" help="This Path should exist on every Saas Server.">
+                                <!-- <div class="o_setting_left_pane">
+                                </div> -->
+                                <div class="">
+                                    <!-- o_setting_right_pane -->
+                                    <div class="content-group" >
+                                        <div class="row">
+                                            <label for="free_users" class="col-md-3 o_light_label"/>
+                                            <field name="free_users"/>
+                                        </div>
+                                    </div>                                    
+                                </div>
+                            </setting>
+
+                            <!-- <div class="col-xs-12 col-md-6 o_setting_box" invisible="(not is_free_users ) or (not is_users)">
+                                <div class="o_setting_left_pane">
+                                </div>
+                                <div class="o_setting_right_pane">
+                                    <div class="content-group" >
+                                        <div class="row">
+                                            <label for="free_users" class="col-md-3 o_light_label"/>
+                                            <field name="free_users"/>
+                                        </div>
+                                    </div>                                    
+                                </div>
+                            </div> -->
+    
+
+
+
+                            <setting class = "col-12" id="provide_discount" string="Provide Discount" help="Provide discount on Annual Billing" >
+                                <field name="annual_discount"/>
+                                <!-- <div class="o_setting_left_pane">
+                                </div> -->
+                                <div class="">
+                                    <!-- o_setting_right_pane -->
+                                    <!-- <label for="annual_discount" string="Provide Discount"/> -->
+                                    <!-- <div class="text-muted">
+                                       Provide discount on Annual Billing
+                                    </div> -->
+                                    <div invisible="(not annual_discount)">
+                                        <div class="content-group" >
+                                            <div class="row">
+                                                <label for="discount_percent" class="col-md-3 o_light_label"/>
+                                                <field name="discount_percent"/>
+                                            </div>
+                                        </div>                                    
+                                    </div>
+                                </div>
+                            </setting>
+
+                            <!-- <div class="col-xs-12 col-md-6 o_setting_box">
+                                <div class="o_setting_left_pane">
+                                    <field name="annual_discount"/>
+                                </div>
+                                <div class="o_setting_right_pane">
+                                    <label for="annual_discount" string="Provide Discount"/>
+                                    <div class="text-muted">
+                                       Provide discount on Annual Billing
+                                    </div>
+                                    <div invisible="(not annual_discount)">
+                                        <div class="content-group" >
+                                            <div class="row">
+                                                <label for="discount_percent" class="col-md-3 o_light_label"/>
+                                                <field name="discount_percent"/>
+                                            </div>
+                                        </div>                                    
+                                    </div>
+                                </div>
+                            </div> -->
+
+
+                        <!-- </div> -->
+                    </block>
+                </app>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="saas_config_inherit_form" model="ir.ui.view">
+        <field name="name">Saas config Inherit</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="odoo_saas_kit.res_config_settings_inheri_view_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//setting[@id='saas_kit_renew_mail']" position="before">
+                <!-- <div class="row mt16 o_settings_container" id="saas_kit_custom_config"> -->
+
+
+                    <!-- <div class="col-xs-12 col-md-6 o_setting_box">
+                        <div class="o_setting_left_pane">
+                            <field class="oe_inline" name="is_reminder_period"/>
+                        </div>
+                        <div class="o_setting_right_pane">
+                            <div>
+                                <label for="is_reminder_period" string="Enable Contract Expiry Reminder"/>                            
+                            </div>
+                            <div class="text-muted">
+                                Click to Enable/Disable Reminders
+                            </div>
+                        </div>
+                    </div> -->
+                    <setting class = "col-12" string="Enable Contract Expiry Reminder" help="Click to Enable/Disable Reminders">
+                        <field name="is_reminder_period"/>
+                    </setting>
+
+                    
+
+
+                    <setting class = "col-12" invisible="(not is_reminder_period)" string="Expiry Reminders starts before (days)" help="Contract Expiry mails will sent to Customer before mentioned days of contract expiration.">
+                        <div>
+                            <field class="oe_inline" name="reminder_period" required="1"/>
+                        </div>
+                    </setting>
+
+
+                    <setting invisible="(is_reminder_period)"></setting>
+                    <!-- <div class="col-xs-12 col-md-6 o_setting_box" invisible="(not is_reminder_period)">
+                        <div class="o_setting_left_pane">
+                        </div>
+                        <div class="o_setting_right_pane">
+                            <div>
+                                <label for="reminder_period" string="Expiry Reminders starts before (days)"/>                            
+                                <field class="oe_inline" name="reminder_period" required="1"/>
+                            </div>
+                            <div class="text-muted">
+                                Contract Expiry mails will sent to Customer before mentioned days of contract expiration.
+                            </div>
+                        </div>
+                    </div> -->
+
+
+                <!-- </div> -->
+            </xpath>
+        </field>
+    </record>
+</odoo>
