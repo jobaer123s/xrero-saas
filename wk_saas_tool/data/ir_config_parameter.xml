@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (c) 2016-Present Webkul Software Pvt. Ltd. (<https://webkul.com/>) -->
+<!-- See LICENSE file for full copyright and licensing details. -->
+<!-- License URL : <https://store.webkul.com/license.html/> -->
+
+<odoo>
+    <data noupdate="1">
+        <record id="contract_expire" model="ir.config_parameter">
+            <field name="key">contract.is_expired</field>
+            <field name="value">False</field>
+        </record>
+        <record id="trial_enable" model="ir.config_parameter">
+            <field name="key">trial.is_trial_enabled</field>
+            <field name="value">x</field>
+        </record>
+        <record id="trial_period" model="ir.config_parameter">
+            <field name="key">trial.trial_period</field>
+            <field name="value">0</field>
+        </record>
+        <record id="trial_url" model="ir.config_parameter">
+            <field name="key">trial.purchase_link</field>
+            <field name="value">x</field>
+        </record>
+        <record id="min_user" model="ir.config_parameter">
+            <field name="key">user.min_users</field>
+            <field name="value">0</field>
+        </record>
+        <record id="max_user" model="ir.config_parameter">
+            <field name="key">user.max_users</field>
+            <field name="value">0</field>
+        </record>
+        <record id="user_count" model="ir.config_parameter">
+            <field name="key">user.count</field>
+            <field name="value">False</field>
+        </record>
+    </data>
+</odoo>

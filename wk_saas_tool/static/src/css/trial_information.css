@@ -1,0 +1,51 @@
+.wk-destroy-info {
+    position: fixed;
+    font-family: "Roboto", "Odoo Unicode Support Noto", sans-serif;
+    /* width: 50%; */
+    bottom: 5px;
+    font-weight: 200;
+    padding: 1px 6px !important;
+    border-radius: 4px ;
+    left: 30%;
+    background-color: #304FE0 !important;
+    color: #FFFFFF !important;
+    z-index: 9999;
+    box-shadow: 0 2px 20px 0 rgba(0,0,0,0.20);
+}
+div#wk-destroy-info {
+    position: fixed;
+    font-family: "Roboto", "Odoo Unicode Support Noto", sans-serif;
+    /* width: 50%; */
+    border: unset !important;
+    opacity: inherit;
+    bottom: 5px;
+    font-weight: 200;
+    padding: 1px 6px !important;
+    border-radius: 4px !important;
+    left: 30%;
+    margin: 0px;
+    background-color: #304FE0 !important;
+    color: #FFFFFF !important;
+    z-index: 9999;
+    box-shadow: 0 2px 20px 0 rgba(0,0,0,0.20);
+}
+
+
+.trial_expired_span{
+    color: white;
+}
+.wk-destroy-info a.btn{
+    font-weight: 150;
+    padding: 6px 6px !important;
+    margin:5px;
+    opacity: inherit;
+    border-radius: 4px !important;
+    background-color: #FFFFFF !important;
+    color:  #333333 !important;
+
+}
+.wk-destroy-time {
+    font-size: 17px;
+    margin-left: 5px;
+}
+
