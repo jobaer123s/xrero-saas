@@ -85,17 +85,20 @@
                         </div> -->
 
                         <field name="active" invisible="1" />
-                        <div style="height:95px">
-                            <field name="image" widget="image" class="oe_avatar float-start"/>
-                            <div style="margin-left:120px">
-                            <label class="oe_edit_only" for="name" string="Name"/>
-                            <h1 ><field name="name" readonly="state == 'confirm'"/></h1>
-                            <label class="oe_edit_only" for="summary" string="Summary"/>
-                            <!-- <div> -->
-                                <field name="summary" readonly="state == 'confirm'"/>
-                            <!-- </div> -->
-                            </div>
-                        </div>
+
+<div style="display: flex; align-items: flex-start; height: 100px;">
+    <div style="flex-shrink: 0;">
+        <field name="image" widget="image" class="oe_avatar"/>
+    </div>
+    <div style="margin-left: 20px;">
+        <label class="oe_edit_only" for="name" string="Name"></label>
+        <h1><field name="name" readonly="state == 'confirm'"/></h1>
+        <label class="oe_edit_only" for="summary" string="Summary"></label>
+        <field name="summary" readonly="state == 'confirm'"/>
+    </div>
+</div>
+
+
                         <group >
                             <group string="SaaS Server">
                                 <field name="is_multi_server" invisible="1"/>

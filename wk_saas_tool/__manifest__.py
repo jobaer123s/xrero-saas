@@ -31,7 +31,7 @@
   'assets'               : {
                              'web.assets_backend': [
                                "wk_saas_tool/static/src/css/trial_information.css",
-                               "wk_saas_tool/static/src/js/trial_information.js"
+                              "wk_saas_tool/static/src/js/trial_information.js"
                             ],
     
     },

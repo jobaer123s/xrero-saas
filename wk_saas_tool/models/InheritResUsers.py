@@ -15,7 +15,7 @@
 #################################################################################s
 
 from odoo import api, fields, models, tools, SUPERUSER_ID, _
-from odoo.exceptions import AccessDenied, Warning, UserError
+from odoo.exceptions import AccessDenied, UserError
 import logging
 _logger = logging.getLogger(__name__)
 
