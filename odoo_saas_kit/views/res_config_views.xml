@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (c) 2016-Present Webkul Software Pvt. Ltd. (<https://webkul.com/>) -->
+<!-- Copyright (c) 2016-Present Xrero Software Pvt. Ltd. (<https://Xrero.com/>) -->
 <!-- See LICENSE file for full copyright and licensing details. -->
-<!-- License URL : <https://store.webkul.com/license.html/> -->
+<!-- License URL : <https://store.Xrero.com/license.html/> -->
 
 <odoo>
     <record id="res_config_settings_inheri_view_form" model="ir.ui.view">
@@ -12,8 +12,8 @@
         <field name="arch" type="xml">
             <xpath expr="//form" position="inside">
 
-                <app string="Odoo Saas Kit" data-string="Odoo Saas Kit" name="odoo_saas_kit">
-                    <block title="Default Configuration for Odoo Saas KIT" id="saas_kit_config" class="saas_kit_setting_block" name="saas_kit_setting_container">
+                <app string="Xrero Saas Kit" data-string="Xrero Saas Kit" name="odoo_saas_kit">
+                    <block title="Default Configuration for Xrero Saas KIT" id="saas_kit_config" class="saas_kit_setting_block" name="saas_kit_setting_container">
 
                         <setting class = "col-12" id="saas_kit_auto_create_client" string="Scheduled Client Creation" help="Automatically create clients from contract via Scheduler.">
                             <field name="auto_create_client"/>

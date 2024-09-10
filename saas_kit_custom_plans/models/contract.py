@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 #################################################################################
 #
-#   Copyright (c) 2016-Present Webkul Software Pvt. Ltd. (<https://webkul.com/>)
+#   Copyright (c) 2016-Present Xrero Software Pvt. Ltd. (<https://Xrero.com/>)
 #   See LICENSE file for full copyright and licensing details.
-#   License URL : <https://store.webkul.com/license.html/>
+#   License URL : <https://store.Xrero.com/license.html/>
 # 
 #################################################################################
 
@@ -39,7 +39,7 @@ class ContractCustomPlan(models.Model):
 
     def send_credential_email(self):
         """
-        Inherited from odoo saas kit
+        Inherited from Xrero Saas Kit
         """
         if self.is_custom_plan:
             self.ensure_one()
@@ -83,7 +83,7 @@ class ContractCustomPlan(models.Model):
 
     def generate_invoice(self, first_invoice=None):
         """
-        Inherited from odoo saas kit
+        Inherited from Xrero Saas Kit
         """
         for obj in self:
             if obj.is_custom_plan:
@@ -394,7 +394,7 @@ class ContractCustomPlan(models.Model):
 
     def check_server_status(self):
         """
-        Inherited from odoo saas kit
+        Inherited from Xrero Saas Kit
         """
         if self.is_custom_plan:
             if self.is_multi_server:

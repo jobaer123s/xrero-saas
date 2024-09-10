@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 #################################################################################
-# Author      : Webkul Software Pvt. Ltd. (<https://webkul.com/>)
-# Copyright(c): 2015-Present Webkul Software Pvt. Ltd.
+# Author      : Xrero Software Pvt. Ltd. (<https://Xrero.com/>)
+# Copyright(c): 2015-Present Xrero Software Pvt. Ltd.
 # All Rights Reserved.
 #
 #
@@ -11,7 +11,7 @@
 #
 #
 # You should have received a copy of the License along with this program.
-# If not, see <https://store.webkul.com/license.html/>
+# If not, see <https://store.Xrero.com/license.html/>
 #################################################################################
 {
   "name"                 :  "SaaS Kit Trial",
@@ -20,11 +20,11 @@
   "version"              :  "1.0.0",
   "sequence"             :  2,
 
-  "author"               :  "Webkul Software Pvt. Ltd.",
+  "author"               :  "Xrero Software Pvt. Ltd.",
   "license"              :  "Other proprietary",
-  "website"              :  "https://store.webkul.com/",
+  "website"              :  "https://store.Xrero.com/",
   "description"          :  """The module allows you to provides free trial of Odoo instance to a particular Client""",
-  "live_test_url"        :  "http://odoodemo.webkul.com/demo_feedback",
+  "live_test_url"        :  "http://odoodemo.Xrero.com/demo_feedback",
   "depends"              :  ['odoo_saas_kit'],
   "data"                 :  [
                              'views/trial_plan_view.xml',

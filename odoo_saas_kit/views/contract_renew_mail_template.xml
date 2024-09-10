@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (c) 2016-Present Webkul Software Pvt. Ltd. (<https://webkul.com/>) -->
+<!-- Copyright (c) 2016-Present Xrero Software Pvt. Ltd. (<https://Xrero.com/>) -->
 <!-- See LICENSE file for full copyright and licensing details. -->
-<!-- License URL : <https://store.webkul.com/license.html/> -->
+<!-- License URL : <https://store.Xrero.com/license.html/> -->
 
 <odoo>
     <data noupdate="1">
         <record id="contract_renew_mail_template" model="mail.template">
             <field name="name">Contract Renew Reminder</field>
             <field name="email_from">{{(user.partner_id.email or '')}}</field>
-            <!-- <field name="email_from">uditsinghal.odoo242@webkul.in</field> -->
+            <!-- <field name="email_from">uditsinghal.odoo242@Xrero.in</field> -->
             <field name="subject">{{object.company_id.name}} Contract (Ref {{object.name or 'n/a' }})</field>
             <field name="partner_to">{{object.partner_id.id}}</field>
             <field name="model_id" ref="odoo_saas_kit.model_saas_contract"/>

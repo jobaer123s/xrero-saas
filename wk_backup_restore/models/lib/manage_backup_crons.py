@@ -191,7 +191,7 @@ if __name__ == '__main__':
     master_pass = 'CnvvV46UGZb2=N'
     url = 'http://192.168.5.125/'
     main_db = 'postgres'
-    db_name = 'test_backup_crone.odoo-saas.webkul.com'
+    db_name = 'test_backup_crone.odoo-saas.Xrero.com'
     db_user = 'postgres'
     db_password = 'postgres'
     process_id = 1234

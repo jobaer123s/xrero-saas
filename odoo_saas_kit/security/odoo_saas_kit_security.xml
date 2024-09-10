@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (c) 2016-Present Webkul Software Pvt. Ltd. (<https://webkul.com/>) -->
+<!-- Copyright (c) 2016-Present Xrero Software Pvt. Ltd. (<https://Xrero.com/>) -->
 <!-- See LICENSE file for full copyright and licensing details. -->
-<!-- License URL : <https://store.webkul.com/license.html/> -->
+<!-- License URL : <https://store.Xrero.com/license.html/> -->
 
 <odoo>
     <record model="ir.module.category" id="module_category_odoo_saas_kit">
-        <field name="name">Odoo SaaS Kit</field>
+        <field name="name">Xrero SaaS Kit</field>
         <field name="description">Handles all the operations regarding Odoo SaaS.</field>
         <field name="sequence">0</field>
     </record>

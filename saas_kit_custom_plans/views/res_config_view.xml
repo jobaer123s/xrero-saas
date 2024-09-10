@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (c) 2016-Present Webkul Software Pvt. Ltd. (<https://webkul.com/>) -->
+<!-- Copyright (c) 2016-Present Xrero Software Pvt. Ltd. (<https://Xrero.com/>) -->
 <!-- See LICENSE file for full copyright and licensing details. -->
-<!-- License URL : <https://store.webkul.com/license.html/> -->
+<!-- License URL : <https://store.Xrero.com/license.html/> -->
 
 <odoo>
     <record id="res_config_settings_inheri_view_form" model="ir.ui.view">

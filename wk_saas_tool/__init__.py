@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 #################################################################################
-# Author      : Webkul Software Pvt. Ltd. (<https://webkul.com/>)
-# Copyright(c): 2015-Present Webkul Software Pvt. Ltd.
+# Author      : Xrero Software Pvt. Ltd. (<https://Xrero.com/>)
+# Copyright(c): 2015-Present Xrero Software Pvt. Ltd.
 # All Rights Reserved.
 #
 #
@@ -11,7 +11,7 @@
 #
 #
 # You should have received a copy of the License along with this program.
-# If not, see <https://store.webkul.com/license.html/>
+# If not, see <https://store.Xrero.com/license.html/>
 #################################################################################
 
 from . import models

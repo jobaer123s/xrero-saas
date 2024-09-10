@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 #################################################################################
-# Author      : Webkul Software Pvt. Ltd. (<https://webkul.com/>)
-# Copyright(c): 2015-Present Webkul Software Pvt. Ltd.
+# Author      : Xrero Software Pvt. Ltd. (<https://Xrero.com/>)
+# Copyright(c): 2015-Present Xrero Software Pvt. Ltd.
 # All Rights Reserved.
 #
 #
@@ -11,19 +11,19 @@
 #
 #
 # You should have received a copy of the License along with this program.
-# If not, see <https://store.webkul.com/license.html/>
+# If not, see <https://store.Xrero.com/license.html/>
 #################################################################################
 {
-  "name"                 :  "Odoo SaaS Custom Plans",
-  "summary"              :  """Odoo SaaS Custom Plans allows you to provide option to your clients to select custom Plans of their choice for Odoo Saas Kit""",
+  "name"                 :  "Xrero SaaS Custom Plans",
+  "summary"              :  """Odoo SaaS Custom Plans allows you to provide option to your clients to select custom Plans of their choice for Xrero Saas Kit""",
   "category"             :  "Extra Tools",
   "version"              :  "1.0.0",
   "sequence"             :  1,
-  "author"               :  "Webkul Software Pvt. Ltd.",
+  "author"               :  "Xrero Software Pvt. Ltd.",
   "license"              :  "Other proprietary",
-  "website"              :  "https://store.webkul.com/",
-  "description"          :  """Provide Custom plan option for Odoo saas Kit.""",
-  "live_test_url"        :  "http://odoodemo.webkul.com/demo_feedback?module=saas_kit_custom_plans",
+  "website"              :  "https://store.Xrero.com/",
+  "description"          :  """Provide Custom plan option for Xrero saas Kit.""",
+  "live_test_url"        :  "http://odoodemo.Xrero.com/demo_feedback?module=saas_kit_custom_plans",
   "depends"              :  [
                              'odoo_saas_kit',
                             ],

@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 #################################################################################
-# Author      : Webkul Software Pvt. Ltd. (<https://webkul.com/>)
-# Copyright(c): 2015-Present Webkul Software Pvt. Ltd.
+# Author      : Xrero Software Pvt. Ltd. (<https://Xrero.com/>)
+# Copyright(c): 2015-Present Xrero Software Pvt. Ltd.
 # All Rights Reserved.
 #
 #
@@ -11,19 +11,19 @@
 #
 #
 # You should have received a copy of the License along with this program.
-# If not, see <https://store.webkul.com/license.html/>
+# If not, see <https://store.Xrero.com/license.html/>
 #################################################################################
 {
-  "name"                 :  "ODOO SAAS KIT | ALL IN ONE",
-  "summary"              :  """Odoo SaaS Kit allows you to run your Odoo As A SaaS business. After installation and set uo you can sell Odoo As A Saas to your client via subscription based model, saaskit""",
+  "name"                 :  "Xrero SAAS KIT | ALL IN ONE",
+  "summary"              :  """Xrero SaaS Kit allows you to run your Xrero As A SaaS business. After installation and set uo you can sell Xrero As A Saas to your client via subscription based model, saaskit""",
   "category"             :  "Extra Tools",
   "version"              :  "1.2.1",
   "sequence"             :  1,
-  "author"               :  "Webkul Software Pvt. Ltd.",
+  "author"               :  "Xrero Software Pvt. Ltd.",
   "license"              :  "Other proprietary",
-  "website"              :  "https://store.webkul.com/",
-  "description"          :  """Provide Odoo as a Service(Saas) on your servers with Odoo saas Kit.""",
-  "live_test_url"        :  "http://odoodemo.webkul.com/demo_feedback?module=odoo_saas_kit",
+  "website"              :  "https://store.Xrero.com/",
+  "description"          :  """Provide Xrero as a Service(Saas) on your servers with Xrero saas Kit.""",
+  "live_test_url"        :  "http://odoodemo.Xrero.com/demo_feedback?module=odoo_saas_kit",
   "depends"              :  [
                              'sale_management',
                              'portal',

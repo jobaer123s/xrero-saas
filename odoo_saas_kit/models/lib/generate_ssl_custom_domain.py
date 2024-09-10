@@ -12,7 +12,7 @@ TODO: EDGE-CASE: 1. TO GREP PROXY PASS OUT OF MULTIPLE LOCATION BLOCK.
 normal vhost copy part 
 """
 
-CLIENT_EMAIL = "saasclient@odoo-saas.webkul.com"
+CLIENT_EMAIL = "saasclient@odoo-saas.Xrero.com"
 WEBROOT_PATH = "/usr/share/nginx/html/" 
 REVERSE_PROXY_CHECK = "sudo nginx -t"
 REVERSE_PROXY_RELOAD = "sudo nginx -s reload"
@@ -226,14 +226,14 @@ if __name__ == '__main__':
     ssl_flag: to notify if ssl certs are already present
     """
 
-    subdomain = "trial_test_4.odoo12-saas.webkul.com"
-    custom_domain = "gc-new.odoo12-saas.webkul.com"
+    subdomain = "trial_test_4.odoo12-saas.Xrero.com"
+    custom_domain = "gc-new.odoo12-saas.Xrero.com"
 
     main_add(subdomain=subdomain, custom_domain=custom_domain, ssl_flag=True, module_path="/opt/odoo17/webkul_addons/odoo_saas_kit/")
     
     # EVERTHING UNDERNEATH THIS IS FOR TESTING
     #odoo_saas_data = os.getcwd()
-    #odoo_backend, longpolling_backend = grep_backends_from_conf(odoo_saas_data, "test.odoo-saas.webkul.com")
+    #odoo_backend, longpolling_backend = grep_backends_from_conf(odoo_saas_data, "test.odoo-saas.Xrero.com")
     # run_certbot(domain_name="domain.com", client_email="abc@domain.com", webroot_path="/usr/share/nginx/html/", dry_run=True)
-    #create_vhost("test.odoo-saas.webkul.com", "domain.ml", odoo_backend, longpolling_backend, docker_vhosts=odoo_saas_data, ssl_flag=True)
+    #create_vhost("test.odoo-saas.Xrero.com", "domain.ml", odoo_backend, longpolling_backend, docker_vhosts=odoo_saas_data, ssl_flag=True)
     #remove_vhost("test.abc.com", docker_vhosts="")

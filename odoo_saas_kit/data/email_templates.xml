@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (c) 2016-Present Webkul Software Pvt. Ltd. (<https://webkul.com/>) -->
+<!-- Copyright (c) 2016-Present Xrero Software Pvt. Ltd. (<https://Xrero.com/>) -->
 <!-- See LICENSE file for full copyright and licensing details. -->
-<!-- License URL : <https://store.webkul.com/license.html/> -->
+<!-- License URL : <https://store.Xrero.com/license.html/> -->
 
 <odoo>
     <data noupdate="1">
@@ -19,7 +19,7 @@
                 <p>Greetings of the Day.</p>
                 <p>Your Instance has been successfully created.</p>
 
-                <p>Kindly visit the following link to login to your Odoo Server. >> <t><a t-att-href="object.client_url"><t t-esc="object.client_url"/></a></t></p>
+                <p>Kindly visit the following link to login to your Xrero Server. >> <t><a t-att-href="object.client_url"><t t-esc="object.client_url"/></a></t></p>
 
                 <p>Please reset password using the following URL.<br/>
                 <t> <a t-att-href="object.invitation_url"><t t-esc="object.invitation_url"/></a></t>
@@ -79,7 +79,7 @@
                 </center>
                 <br/>
                 <p>
-                    Once the Domain is successfully created, you will receive the URL of your Odoo Instance along with the login Id and password via mail.
+                    Once the Domain is successfully created, you will receive the URL of your Xrero Instance along with the login Id and password via mail.
                 </p>
                 <p>If you have any query or issues please contact our Support Team.</p>
 

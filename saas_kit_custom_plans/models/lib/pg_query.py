@@ -6,7 +6,7 @@ _logger = logging.getLogger(__name__)
 class PgQuery(object):
     """
     USAGE:
-    postgresX = ['localhost', 'sadsadsad', 'admin', 'webkul']
+    postgresX = ['localhost', 'sadsadsad', 'admin', 'Xrero']
     pgX = TaskMigration(*postgresX)
     with pgX:
         result = pgX.selectQuery(query)
