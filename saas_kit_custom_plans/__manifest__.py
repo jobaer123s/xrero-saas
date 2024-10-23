@@ -21,7 +21,7 @@
   "sequence"             :  1,
   "author"               :  "Xrero Software Pvt. Ltd.",
   "license"              :  "Other proprietary",
-  "website"              :  "https://store.Xrero.com/",
+  "website"              :  "https://xrero.com/",
   "description"          :  """Provide Custom plan option for Xrero saas Kit.""",
   "live_test_url"        :  "http://odoodemo.Xrero.com/demo_feedback?module=saas_kit_custom_plans",
   "depends"              :  [
