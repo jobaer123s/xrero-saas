@@ -1,0 +1,1066 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* saas_kit_custom_plans
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 17.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-10-23 06:08+0000\n"
+"PO-Revision-Date: 2024-10-23 06:08+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: saas_kit_custom_plans
+#: model:mail.template,body_html:saas_kit_custom_plans.contract_expiry_warning_template
+msgid ""
+"\n"
+"                <t>\n"
+"                    <p>Dear <t t-esc=\"object.partner_id.name\" />\n"
+"                        <t t-set=\"access_url\" t-value=\"object.get_subdomain_url()\" />\n"
+"                        <t t-set=\"access_name\" t-value=\"'Create Your Domain Name'\" />\n"
+"\n"
+"                        <t t-if=\"object.partner_id.parent_id\">\n"
+"                            (<i><t t-esc=\"object.partner_id.parent_id.name\" /></i>)\n"
+"                        </t>\n"
+"                        \n"
+"                    ,</p>\n"
+"\n"
+"                    <p>We want to inform you that your Contract <t t-esc=\"object.name\" /> for <t t-esc=\"object.saas_client.client_url\" /> will be expired on <t t-esc=\"object.next_invoice_date\" /> .</p>\n"
+"\n"
+"                    <p>\n"
+"                        Please extend your contract on or before <t t-esc=\"object.next_invoice_date\" /> to continue services of plan. You can buy any number of cycles for the plan.\n"
+"                    </p>                \n"
+"                    <p>\n"
+"                        Please buy the subscription before ending of your plan's instance.\n"
+"                    </p>\n"
+"                    <p>\n"
+"                        Commencement Date: <t t-esc=\"object.start_date\" /><br/>\n"
+"                        Expiry Date: <t t-esc=\"object.next_invoice_date\" /><br/>\n"
+"                    </p>\n"
+"                    <p>\n"
+"                        If you have any queries or issues, please contact our support team.\n"
+"                    </p>\n"
+"\n"
+"                    <br/><br/>\n"
+"                    <br/>\n"
+"\n"
+"                    <p>Thank you,</p>\n"
+"\n"
+"                    <p style=\"color:#888888;\">\n"
+"                    </p>\n"
+"                </t>\n"
+"            "
+msgstr ""
+
+#. module: saas_kit_custom_plans
+#: model_terms:ir.ui.view,arch_db:saas_kit_custom_plans.res_config_settings_inheri_view_form
+msgid "/Month"
+msgstr ""
+
+#. module: saas_kit_custom_plans
+#: model_terms:ir.ui.view,arch_db:saas_kit_custom_plans.category_view_template
+#: model_terms:ir.ui.view,arch_db:saas_kit_custom_plans.normal_view_template
+msgid "/Per Month"
+msgstr ""
+
+#. module: saas_kit_custom_plans
+#: model_terms:ir.ui.view,arch_db:saas_kit_custom_plans.category_view_template
+#: model_terms:ir.ui.view,arch_db:saas_kit_custom_plans.normal_view_template
+#: model_terms:ir.ui.view,arch_db:saas_kit_custom_plans.select_apps_section
+msgid "/Per User"
+msgstr "لكل مستخدم"
+
+#. module: saas_kit_custom_plans
+#: model_terms:ir.ui.view,arch_db:saas_kit_custom_plans.plan_page
+msgid "<b>Select Apps</b>"
+msgstr "حدد التطبيقات"
+
+#. module: saas_kit_custom_plans
+#: model_terms:ir.ui.view,arch_db:saas_kit_custom_plans.plan_page
+msgid "<i class=\"fa fa-home me-2\"/>Back to Home"
+msgstr ""
+
+#. module: saas_kit_custom_plans
+#: model_terms:ir.ui.view,arch_db:saas_kit_custom_plans.plan_page
+msgid ""
+"<span class=\"heading_text d-flex\" id=\"odoo_version_text\">\n"
+"                                                ODOO VERSION:\n"
+"                                            </span>"
+msgstr "نسخة أودو"
+
+#. module: saas_kit_custom_plans
+#: model_terms:ir.ui.view,arch_db:saas_kit_custom_plans.plan_page
+msgid "<span class=\"heading_text\" id=\"billing_text\">BILLING CYCLE: </span>"
+msgstr ""
+
+#. module: saas_kit_custom_plans
+#: model_terms:ir.ui.view,arch_db:saas_kit_custom_plans.plan_page
+msgid "<span class=\"heading_text\">CATEGORIES APPS: </span>"
+msgstr "<span class=\"heading_text\">فئات التطبيقات: </span>"
+
+#. module: saas_kit_custom_plans
+#: model_terms:ir.ui.view,arch_db:saas_kit_custom_plans.saas_module_inherit_form
+msgid "<span class=\"o_warning_text\">Un Publish</span>"
+msgstr ""
+
+#. module: saas_kit_custom_plans
+#: model_terms:ir.ui.view,arch_db:saas_kit_custom_plans.saas_module_inherit_form
+msgid "<span class=\"text-success\">Publish</span>"
+msgstr ""
+
+#. module: saas_kit_custom_plans
+#: model_terms:ir.ui.view,arch_db:saas_kit_custom_plans.portal_apps_inherit_template
+msgid ""
+"<span id=\"add_app_span_1\">Add Apps</span><br/>\n"
+"                                <span id=\"add_app_span_2\">Add another app to your contract</span>"
+msgstr ""
+
+#. module: saas_kit_custom_plans
+#: model_terms:ir.ui.view,arch_db:saas_kit_custom_plans.select_apps_section
+msgid "<span id=\"total_app_value_span\">00 </span>"
+msgstr ""
+
+#. module: saas_kit_custom_plans
+#: model_terms:ir.ui.view,arch_db:saas_kit_custom_plans.select_apps_section
+msgid "<span id=\"total_apps_count\">00</span>"
+msgstr ""
+
+#. module: saas_kit_custom_plans
+#: model_terms:ir.ui.view,arch_db:saas_kit_custom_plans.select_apps_section
+msgid ""
+"<span>\n"
+"                        Selected Apps\n"
+"                    </span>"
+msgstr ""
+
+#. module: saas_kit_custom_plans
+#: model_terms:ir.ui.view,arch_db:saas_kit_custom_plans.portal_apps_modal_inherit_template
+msgid "APP DETAILS"
+msgstr ""
+
+#. module: saas_kit_custom_plans
+#: model:ir.model.fields,field_description:saas_kit_custom_plans.field_saas_odoo_version__message_needaction
+msgid "Action Needed"
+msgstr ""
+
+#. module: saas_kit_custom_plans
+#: model:ir.model.fields,field_description:saas_kit_custom_plans.field_saas_odoo_version__activity_ids
+msgid "Activities"
+msgstr ""
+
+#. module: saas_kit_custom_plans
+#: model:ir.model.fields,field_description:saas_kit_custom_plans.field_saas_odoo_version__activity_exception_decoration
+msgid "Activity Exception Decoration"
+msgstr ""
+
+#. module: saas_kit_custom_plans
+#: model:ir.model.fields,field_description:saas_kit_custom_plans.field_saas_odoo_version__activity_state
+msgid "Activity State"
+msgstr ""
+
+#. module: saas_kit_custom_plans
+#: model:ir.model.fields,field_description:saas_kit_custom_plans.field_saas_odoo_version__activity_type_icon
+msgid "Activity Type Icon"
+msgstr ""
+
+#. module: saas_kit_custom_plans
+#: model_terms:ir.ui.view,arch_db:saas_kit_custom_plans.portal_apps_modal_inherit_template
+msgid "Add Apps"
+msgstr ""
+
+#. module: saas_kit_custom_plans
+#: model:ir.model.fields,field_description:saas_kit_custom_plans.field_saas_module__addons_path
+msgid "Addons Path"
+msgstr ""
+
+#. module: saas_kit_custom_plans
+#: model:product.template,name:saas_kit_custom_plans.product_product_custom_plan_product_template
+msgid "Apps Cost"
+msgstr ""
+
+#. module: saas_kit_custom_plans
+#: model:ir.model.fields,field_description:saas_kit_custom_plans.field_res_config_settings__apps_view
+msgid "Apps View"
+msgstr ""
+
+#. module: saas_kit_custom_plans
+#: model_terms:ir.ui.view,arch_db:saas_kit_custom_plans.saas_module_search_view
+msgid "Archived"
+msgstr ""
+
+#. module: saas_kit_custom_plans
+#: model_terms:ir.ui.view,arch_db:saas_kit_custom_plans.cancel_odoo_version_wizard_view
+msgid ""
+"Are you sure you want to Cancel the Saas Odoo Version? This action is "
+"irreversible."
+msgstr ""
+
+#. module: saas_kit_custom_plans
+#: model_terms:ir.ui.view,arch_db:saas_kit_custom_plans.drop_odoo_version_db_wizard_view
+msgid ""
+"Are you sure you want to Drop Database? It will delete the DB Permanentaly!"
+msgstr ""
+
+#. module: saas_kit_custom_plans
+#: model:ir.model.fields,field_description:saas_kit_custom_plans.field_saas_odoo_version__message_attachment_count
+msgid "Attachment Count"
+msgstr ""
+
+#. module: saas_kit_custom_plans
+#: model:ir.model.fields,field_description:saas_kit_custom_plans.field_saas_module__auto_install
+msgid "Auto Install Module"
+msgstr ""
+
+#. module: saas_kit_custom_plans
+#: model_terms:ir.ui.view,arch_db:saas_kit_custom_plans.select_apps_section
+msgid "Buy For"
+msgstr ""
+
+#. module: saas_kit_custom_plans
+#: model:ir.model.fields.selection,name:saas_kit_custom_plans.selection__saas_odoo_version__state__cancel
+#: model_terms:ir.ui.view,arch_db:saas_kit_custom_plans.odoo_version_form_view
+msgid "Cancel"
+msgstr ""
+
+#. module: saas_kit_custom_plans
+#: model:ir.actions.act_window,name:saas_kit_custom_plans.action_cancel_odoo_version_wizard
+msgid "Cancel Odoo Saas Version"
+msgstr ""
+
+#. module: saas_kit_custom_plans
+#: model:ir.model.fields.selection,name:saas_kit_custom_plans.selection__res_config_settings__apps_view__category
+msgid "Catagorical"
+msgstr ""
+
+#. module: saas_kit_custom_plans
+#: model:ir.model,name:saas_kit_custom_plans.model_saas_module
+msgid "Class for creating Modules that one wishes to provide as a service."
+msgstr ""
+
+#. module: saas_kit_custom_plans
+#: model:ir.model,name:saas_kit_custom_plans.model_saas_client
+msgid "Class for managing SaaS Instances(Clients)"
+msgstr ""
+
+#. module: saas_kit_custom_plans
+#: model:ir.model,name:saas_kit_custom_plans.model_saas_plan
+msgid "Class for managing SaaS subscription plans."
+msgstr ""
+
+#. module: saas_kit_custom_plans
+#: model:ir.model,name:saas_kit_custom_plans.model_saas_module_status
+msgid "Class for managing module instalation status in client record."
+msgstr ""
+
+#. module: saas_kit_custom_plans
+#: model_terms:ir.ui.view,arch_db:saas_kit_custom_plans.saas_config_inherit_form
+msgid "Click to Enable/Disable Reminders"
+msgstr ""
+
+#. module: saas_kit_custom_plans
+#. odoo-python
+#: code:addons/saas_kit_custom_plans/models/contract.py:0
+#, python-format
+msgid "Compose Email"
+msgstr ""
+
+#. module: saas_kit_custom_plans
+#: model_terms:ir.ui.view,arch_db:saas_kit_custom_plans.res_config_settings_inheri_view_form
+msgid "Configuration for Custom Plan Page"
+msgstr ""
+
+#. module: saas_kit_custom_plans
+#: model:ir.model.fields.selection,name:saas_kit_custom_plans.selection__saas_odoo_version__state__confirm
+msgid "Confirm"
+msgstr ""
+
+#. module: saas_kit_custom_plans
+#: model:ir.model.fields,field_description:saas_kit_custom_plans.field_saas_module__contract_id
+msgid "Contract"
+msgstr ""
+
+#. module: saas_kit_custom_plans
+#: model:ir.model,name:saas_kit_custom_plans.model_saas_contract_creation
+msgid "Contract Creation Wizard."
+msgstr ""
+
+#. module: saas_kit_custom_plans
+#: model:mail.template,name:saas_kit_custom_plans.contract_expiry_warning_template
+msgid "Contract Expiry Warning"
+msgstr ""
+
+#. module: saas_kit_custom_plans
+#: model_terms:ir.ui.view,arch_db:saas_kit_custom_plans.saas_config_inherit_form
+msgid ""
+"Contract Expiry mails will sent to Customer before mentioned days of "
+"contract expiration."
+msgstr ""
+
+#. module: saas_kit_custom_plans
+#: model:ir.model.fields.selection,name:saas_kit_custom_plans.selection__saas_module__module_type__core
+msgid "Core Module"
+msgstr ""
+
+#. module: saas_kit_custom_plans
+#: model_terms:ir.ui.view,arch_db:saas_kit_custom_plans.odoo_version_form_view
+msgid "Create Template"
+msgstr ""
+
+#. module: saas_kit_custom_plans
+#: model:ir.model.fields,field_description:saas_kit_custom_plans.field_saas_odoo_version__create_uid
+#: model:ir.model.fields,field_description:saas_kit_custom_plans.field_saas_odoo_version_cancel__create_uid
+#: model:ir.model.fields,field_description:saas_kit_custom_plans.field_saas_odoo_version_db_unlink__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: saas_kit_custom_plans
+#: model:ir.model.fields,field_description:saas_kit_custom_plans.field_saas_odoo_version__create_date
+#: model:ir.model.fields,field_description:saas_kit_custom_plans.field_saas_odoo_version_cancel__create_date
+#: model:ir.model.fields,field_description:saas_kit_custom_plans.field_saas_odoo_version_db_unlink__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: saas_kit_custom_plans
+#: model:ir.model.fields.selection,name:saas_kit_custom_plans.selection__saas_module__module_type__custom
+msgid "Custom Module"
+msgstr ""
+
+#. module: saas_kit_custom_plans
+#: model:ir.ui.menu,name:saas_kit_custom_plans.custom_plans
+msgid "Custom Plan"
+msgstr ""
+
+#. module: saas_kit_custom_plans
+#: model_terms:ir.ui.view,arch_db:saas_kit_custom_plans.res_config_settings_inheri_view_form
+msgid "Custom Plan Page"
+msgstr ""
+
+#. module: saas_kit_custom_plans
+#: model:ir.model.fields,field_description:saas_kit_custom_plans.field_saas_odoo_version__db_template
+msgid "DB Template"
+msgstr ""
+
+#. module: saas_kit_custom_plans
+#: model:ir.model.fields,field_description:saas_kit_custom_plans.field_saas_odoo_version__template_user_id
+msgid "Database Template User ID"
+msgstr ""
+
+#. module: saas_kit_custom_plans
+#: model:ir.model.fields,field_description:saas_kit_custom_plans.field_res_config_settings__addons_path
+msgid "Default Addons Path"
+msgstr ""
+
+#. module: saas_kit_custom_plans
+#: model:ir.model.fields,field_description:saas_kit_custom_plans.field_saas_odoo_version__default_saas_servers_ids
+msgid "Default Saas Servers"
+msgstr ""
+
+#. module: saas_kit_custom_plans
+#: model:ir.model.fields,field_description:saas_kit_custom_plans.field_saas_odoo_version__is_multi_server
+msgid "Deploy Client's on Remote Server"
+msgstr ""
+
+#. module: saas_kit_custom_plans
+#: model_terms:ir.ui.view,arch_db:saas_kit_custom_plans.portal_apps_modal_inherit_template
+msgid "Discard"
+msgstr ""
+
+#. module: saas_kit_custom_plans
+#: model:ir.model.fields,field_description:saas_kit_custom_plans.field_res_config_settings__discount_percent
+msgid "Discount %"
+msgstr ""
+
+#. module: saas_kit_custom_plans
+#: model:ir.model.fields,field_description:saas_kit_custom_plans.field_saas_odoo_version__display_name
+#: model:ir.model.fields,field_description:saas_kit_custom_plans.field_saas_odoo_version_cancel__display_name
+#: model:ir.model.fields,field_description:saas_kit_custom_plans.field_saas_odoo_version_db_unlink__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: saas_kit_custom_plans
+#: model:ir.actions.act_window,name:saas_kit_custom_plans.action_drop_odoo_version_db_wizard
+#: model_terms:ir.ui.view,arch_db:saas_kit_custom_plans.odoo_version_form_view
+msgid "Drop DB"
+msgstr ""
+
+#. module: saas_kit_custom_plans
+#: model_terms:ir.ui.view,arch_db:saas_kit_custom_plans.saas_config_inherit_form
+msgid "Enable Contract Expiry Reminder"
+msgstr ""
+
+#. module: saas_kit_custom_plans
+#: model:ir.model.fields,field_description:saas_kit_custom_plans.field_res_config_settings__annual_discount
+msgid "Enable Discount"
+msgstr ""
+
+#. module: saas_kit_custom_plans
+#: model:ir.model.fields,field_description:saas_kit_custom_plans.field_res_config_settings__is_reminder_period
+msgid "Enable Reminder"
+msgstr ""
+
+#. module: saas_kit_custom_plans
+#: model_terms:ir.ui.view,arch_db:saas_kit_custom_plans.res_config_settings_inheri_view_form
+msgid "Enable to provide Free users to your customer"
+msgstr ""
+
+#. module: saas_kit_custom_plans
+#: model:ir.model.fields,help:saas_kit_custom_plans.field_saas_odoo_version__template_user_id
+msgid ""
+"Enter the user_id of User which you have created in the DB Template with "
+"some specific permissions or whose permission you want to grant to the user "
+"of odoo instances which is going to be created by this plan."
+msgstr ""
+
+#. module: saas_kit_custom_plans
+#: model_terms:ir.ui.view,arch_db:saas_kit_custom_plans.saas_config_inherit_form
+msgid "Expiry Reminders starts before (days)"
+msgstr ""
+
+#. module: saas_kit_custom_plans
+#: model:ir.actions.server,name:saas_kit_custom_plans.expiry_warning_mail_crone_ir_actions_server
+msgid "Expiry Warning Mail Crone"
+msgstr ""
+
+#. module: saas_kit_custom_plans
+#: model:ir.model.fields,field_description:saas_kit_custom_plans.field_saas_odoo_version__message_follower_ids
+msgid "Followers"
+msgstr ""
+
+#. module: saas_kit_custom_plans
+#: model:ir.model.fields,field_description:saas_kit_custom_plans.field_saas_odoo_version__message_partner_ids
+msgid "Followers (Partners)"
+msgstr ""
+
+#. module: saas_kit_custom_plans
+#: model:ir.model.fields,help:saas_kit_custom_plans.field_saas_odoo_version__activity_type_icon
+msgid "Font awesome icon e.g. fa-tasks"
+msgstr ""
+
+#. module: saas_kit_custom_plans
+#: model:ir.model.fields,field_description:saas_kit_custom_plans.field_product_product__is_saas_module
+msgid "For Saas Module"
+msgstr ""
+
+#. module: saas_kit_custom_plans
+#: model:ir.model.fields,field_description:saas_kit_custom_plans.field_res_config_settings__free_users
+msgid "Free Users"
+msgstr ""
+
+#. module: saas_kit_custom_plans
+#: model:ir.model.fields,field_description:saas_kit_custom_plans.field_saas_odoo_version__has_message
+msgid "Has Message"
+msgstr ""
+
+#. module: saas_kit_custom_plans
+#: model:ir.model.fields,field_description:saas_kit_custom_plans.field_saas_odoo_version__id
+#: model:ir.model.fields,field_description:saas_kit_custom_plans.field_saas_odoo_version_cancel__id
+#: model:ir.model.fields,field_description:saas_kit_custom_plans.field_saas_odoo_version_db_unlink__id
+msgid "ID"
+msgstr ""
+
+#. module: saas_kit_custom_plans
+#: model:ir.model.fields,field_description:saas_kit_custom_plans.field_saas_odoo_version__activity_exception_icon
+msgid "Icon"
+msgstr ""
+
+#. module: saas_kit_custom_plans
+#: model:ir.model.fields,help:saas_kit_custom_plans.field_saas_odoo_version__activity_exception_icon
+msgid "Icon to indicate an exception activity."
+msgstr ""
+
+#. module: saas_kit_custom_plans
+#: model:ir.model.fields,help:saas_kit_custom_plans.field_saas_odoo_version__message_needaction
+msgid "If checked, new messages require your attention."
+msgstr ""
+
+#. module: saas_kit_custom_plans
+#: model:ir.model.fields,help:saas_kit_custom_plans.field_saas_odoo_version__message_has_error
+#: model:ir.model.fields,help:saas_kit_custom_plans.field_saas_odoo_version__message_has_sms_error
+msgid "If checked, some messages have a delivery error."
+msgstr ""
+
+#. module: saas_kit_custom_plans
+#: model_terms:ir.ui.view,arch_db:saas_kit_custom_plans.saas_client_inherit_form
+msgid "Install Modules"
+msgstr ""
+
+#. module: saas_kit_custom_plans
+#: model:ir.model.fields.selection,name:saas_kit_custom_plans.selection__saas_module_status__status__installed
+msgid "Installed"
+msgstr ""
+
+#. module: saas_kit_custom_plans
+#: model:ir.model.fields,field_description:saas_kit_custom_plans.field_saas_client__version_code
+#: model:ir.model.fields,field_description:saas_kit_custom_plans.field_saas_contract__version_code
+msgid "Instance Odoo Version"
+msgstr ""
+
+#. module: saas_kit_custom_plans
+#: model:ir.model.fields,field_description:saas_kit_custom_plans.field_saas_contract__is_custom_plan
+#: model:ir.model.fields,field_description:saas_kit_custom_plans.field_sale_order_line__is_custom_plan
+msgid "Is Custom Plan"
+msgstr ""
+
+#. module: saas_kit_custom_plans
+#: model:ir.model.fields,field_description:saas_kit_custom_plans.field_saas_odoo_version__is_drop_db
+msgid "Is DB Dropped"
+msgstr ""
+
+#. module: saas_kit_custom_plans
+#: model:ir.model.fields,field_description:saas_kit_custom_plans.field_saas_odoo_version__message_is_follower
+msgid "Is Follower"
+msgstr ""
+
+#. module: saas_kit_custom_plans
+#: model_terms:ir.ui.view,arch_db:saas_kit_custom_plans.saas_module_product__inherit_view_form
+msgid "Is Saas Module"
+msgstr ""
+
+#. module: saas_kit_custom_plans
+#: model:ir.model.fields,field_description:saas_kit_custom_plans.field_saas_contract__sync_required
+msgid "Is Sync Required"
+msgstr ""
+
+#. module: saas_kit_custom_plans
+#: model:ir.model.fields,field_description:saas_kit_custom_plans.field_saas_odoo_version__write_uid
+#: model:ir.model.fields,field_description:saas_kit_custom_plans.field_saas_odoo_version_cancel__write_uid
+#: model:ir.model.fields,field_description:saas_kit_custom_plans.field_saas_odoo_version_db_unlink__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: saas_kit_custom_plans
+#: model:ir.model.fields,field_description:saas_kit_custom_plans.field_saas_odoo_version__write_date
+#: model:ir.model.fields,field_description:saas_kit_custom_plans.field_saas_odoo_version_cancel__write_date
+#: model:ir.model.fields,field_description:saas_kit_custom_plans.field_saas_odoo_version_db_unlink__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: saas_kit_custom_plans
+#: model_terms:ir.ui.view,arch_db:saas_kit_custom_plans.res_config_settings_inheri_view_form
+msgid ""
+"Limit to purchase users, -1 shows customer can purchase unlimited users"
+msgstr ""
+
+#. module: saas_kit_custom_plans
+#: model_terms:ir.ui.view,arch_db:saas_kit_custom_plans.odoo_version_form_view
+msgid "Login"
+msgstr ""
+
+#. module: saas_kit_custom_plans
+#: model_terms:ir.ui.view,arch_db:saas_kit_custom_plans.custom_plan_product_page_inherit
+msgid "Make selection of your apps according to your own requirements."
+msgstr ""
+
+#. module: saas_kit_custom_plans
+#: model:ir.model.fields,field_description:saas_kit_custom_plans.field_res_config_settings__max_users
+msgid "Max Users"
+msgstr ""
+
+#. module: saas_kit_custom_plans
+#: model:ir.model.fields,field_description:saas_kit_custom_plans.field_saas_odoo_version__message_has_error
+msgid "Message Delivery error"
+msgstr ""
+
+#. module: saas_kit_custom_plans
+#: model:ir.model.fields,field_description:saas_kit_custom_plans.field_saas_odoo_version__message_ids
+msgid "Messages"
+msgstr ""
+
+#. module: saas_kit_custom_plans
+#: model:ir.model.fields,field_description:saas_kit_custom_plans.field_saas_client__missed_modules
+msgid "Missed Modules"
+msgstr ""
+
+#. module: saas_kit_custom_plans
+#: model_terms:ir.ui.view,arch_db:saas_kit_custom_plans.saas_module_search_view
+msgid "Module"
+msgstr ""
+
+#. module: saas_kit_custom_plans
+#: model:ir.actions.server,name:saas_kit_custom_plans.module_install_cron_ir_actions_server
+msgid "Module Installation Cron"
+msgstr ""
+
+#. module: saas_kit_custom_plans
+#: model:ir.model.fields,field_description:saas_kit_custom_plans.field_saas_module__module_type
+msgid "Module Type"
+msgstr ""
+
+#. module: saas_kit_custom_plans
+#: model_terms:ir.ui.view,arch_db:saas_kit_custom_plans.saas_module_search_view
+msgid "Module Version"
+msgstr ""
+
+#. module: saas_kit_custom_plans
+#: model:ir.model.fields,field_description:saas_kit_custom_plans.field_sale_order_line__saas_module_ids
+msgid "Modules"
+msgstr ""
+
+#. module: saas_kit_custom_plans
+#: model_terms:ir.ui.view,arch_db:saas_kit_custom_plans.plan_page
+msgid "Monthly"
+msgstr ""
+
+#. module: saas_kit_custom_plans
+#: model:ir.model.fields,field_description:saas_kit_custom_plans.field_saas_odoo_version__my_activity_date_deadline
+msgid "My Activity Deadline"
+msgstr ""
+
+#. module: saas_kit_custom_plans
+#: model_terms:ir.ui.view,arch_db:saas_kit_custom_plans.select_apps_section
+msgid "NO. OF USERS:"
+msgstr ""
+
+#. module: saas_kit_custom_plans
+#: model:ir.model.fields,field_description:saas_kit_custom_plans.field_saas_odoo_version_cancel__name
+#: model:ir.model.fields,field_description:saas_kit_custom_plans.field_saas_odoo_version_db_unlink__name
+msgid "Name"
+msgstr ""
+
+#. module: saas_kit_custom_plans
+#: model:ir.model.fields,field_description:saas_kit_custom_plans.field_saas_odoo_version__activity_calendar_event_id
+msgid "Next Activity Calendar Event"
+msgstr ""
+
+#. module: saas_kit_custom_plans
+#: model:ir.model.fields,field_description:saas_kit_custom_plans.field_saas_odoo_version__activity_date_deadline
+msgid "Next Activity Deadline"
+msgstr ""
+
+#. module: saas_kit_custom_plans
+#: model:ir.model.fields,field_description:saas_kit_custom_plans.field_saas_odoo_version__activity_summary
+msgid "Next Activity Summary"
+msgstr ""
+
+#. module: saas_kit_custom_plans
+#: model:ir.model.fields,field_description:saas_kit_custom_plans.field_saas_odoo_version__activity_type_id
+msgid "Next Activity Type"
+msgstr ""
+
+#. module: saas_kit_custom_plans
+#: model_terms:ir.ui.view,arch_db:saas_kit_custom_plans.cancel_odoo_version_wizard_view
+#: model_terms:ir.ui.view,arch_db:saas_kit_custom_plans.drop_odoo_version_db_wizard_view
+msgid "No"
+msgstr ""
+
+#. module: saas_kit_custom_plans
+#: model:ir.model.fields.selection,name:saas_kit_custom_plans.selection__res_config_settings__apps_view__normal
+msgid "Normal"
+msgstr ""
+
+#. module: saas_kit_custom_plans
+#: model:ir.model.fields,field_description:saas_kit_custom_plans.field_saas_odoo_version__message_needaction_counter
+msgid "Number of Actions"
+msgstr ""
+
+#. module: saas_kit_custom_plans
+#: model:ir.model.fields,field_description:saas_kit_custom_plans.field_saas_odoo_version__message_has_error_counter
+msgid "Number of errors"
+msgstr ""
+
+#. module: saas_kit_custom_plans
+#: model:ir.model.fields,help:saas_kit_custom_plans.field_saas_odoo_version__message_needaction_counter
+msgid "Number of messages requiring action"
+msgstr ""
+
+#. module: saas_kit_custom_plans
+#: model:ir.model.fields,help:saas_kit_custom_plans.field_saas_odoo_version__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr ""
+
+#. module: saas_kit_custom_plans
+#: model:ir.model.fields,field_description:saas_kit_custom_plans.field_saas_module__odoo_version_id
+#: model:ir.model.fields,field_description:saas_kit_custom_plans.field_sale_order_line__odoo_version_id
+#: model:ir.ui.menu,name:saas_kit_custom_plans.odoo_version_action_menu
+#: model_terms:ir.ui.view,arch_db:saas_kit_custom_plans.saas_module_inherit_form
+#: model_terms:ir.ui.view,arch_db:saas_kit_custom_plans.saas_module_search_view
+msgid "Odoo Version"
+msgstr ""
+
+#. module: saas_kit_custom_plans
+#: model:ir.model.fields,field_description:saas_kit_custom_plans.field_saas_plan__odoo_version_code
+msgid "Odoo Version Code"
+msgstr ""
+
+#. module: saas_kit_custom_plans
+#: model:ir.actions.act_window,name:saas_kit_custom_plans.odoo_version_action_view
+msgid "Odoo version"
+msgstr ""
+
+#. module: saas_kit_custom_plans
+#: model:ir.model.fields.selection,name:saas_kit_custom_plans.selection__saas_odoo_version__state__open
+msgid "Open"
+msgstr ""
+
+#. module: saas_kit_custom_plans
+#: model:ir.model.fields,field_description:saas_kit_custom_plans.field_saas_module__order_line_id
+msgid "Order Line"
+msgstr ""
+
+#. module: saas_kit_custom_plans
+#: model_terms:ir.ui.view,arch_db:saas_kit_custom_plans.portal_apps_modal_inherit_template
+msgid "PRICE"
+msgstr ""
+
+#. module: saas_kit_custom_plans
+#: model:ir.model.fields,field_description:saas_kit_custom_plans.field_res_config_settings__user_cost
+msgid "Per User Cost"
+msgstr ""
+
+#. module: saas_kit_custom_plans
+#: model:ir.model.fields,field_description:saas_kit_custom_plans.field_saas_module__price
+msgid "Price"
+msgstr ""
+
+#. module: saas_kit_custom_plans
+#: model_terms:ir.ui.view,arch_db:saas_kit_custom_plans.res_config_settings_inheri_view_form
+msgid "Provide Discount"
+msgstr ""
+
+#. module: saas_kit_custom_plans
+#: model:ir.model.fields,field_description:saas_kit_custom_plans.field_saas_plan__provide_odoo_version
+msgid "Provide Odoo Version"
+msgstr ""
+
+#. module: saas_kit_custom_plans
+#: model_terms:ir.ui.view,arch_db:saas_kit_custom_plans.res_config_settings_inheri_view_form
+msgid "Provide Odoo version selection feature to customer"
+msgstr ""
+
+#. module: saas_kit_custom_plans
+#: model:ir.model.fields,field_description:saas_kit_custom_plans.field_res_config_settings__is_users
+#: model_terms:ir.ui.view,arch_db:saas_kit_custom_plans.res_config_settings_inheri_view_form
+msgid "Provide User Selection"
+msgstr ""
+
+#. module: saas_kit_custom_plans
+#: model:ir.model.fields,field_description:saas_kit_custom_plans.field_res_config_settings__is_odoo_version
+msgid "Provide Version Selection"
+msgstr ""
+
+#. module: saas_kit_custom_plans
+#: model_terms:ir.ui.view,arch_db:saas_kit_custom_plans.res_config_settings_inheri_view_form
+msgid "Provide discount on Annual Billing"
+msgstr ""
+
+#. module: saas_kit_custom_plans
+#: model:ir.model.fields,field_description:saas_kit_custom_plans.field_res_config_settings__is_free_users
+msgid "Provide free Users"
+msgstr ""
+
+#. module: saas_kit_custom_plans
+#: model_terms:ir.ui.view,arch_db:saas_kit_custom_plans.res_config_settings_inheri_view_form
+msgid "Provide user selection feature to customer"
+msgstr ""
+
+#. module: saas_kit_custom_plans
+#: model_terms:ir.ui.view,arch_db:saas_kit_custom_plans.res_config_settings_inheri_view_form
+msgid "Provider Free Users"
+msgstr ""
+
+#. module: saas_kit_custom_plans
+#: model_terms:ir.ui.view,arch_db:saas_kit_custom_plans.res_config_settings_inheri_view_form
+msgid "Provider Version Selection"
+msgstr ""
+
+#. module: saas_kit_custom_plans
+#: model:ir.model.fields,field_description:saas_kit_custom_plans.field_saas_module__is_published
+msgid "Publised"
+msgstr ""
+
+#. module: saas_kit_custom_plans
+#: model:ir.model.fields,field_description:saas_kit_custom_plans.field_saas_odoo_version__rating_ids
+msgid "Ratings"
+msgstr ""
+
+#. module: saas_kit_custom_plans
+#: model:ir.model.fields,field_description:saas_kit_custom_plans.field_sale_order_line__recurring_interval
+msgid "Recurring Interval"
+msgstr ""
+
+#. module: saas_kit_custom_plans
+#: model:ir.model.fields,field_description:saas_kit_custom_plans.field_saas_contract__update_saas_module_ids
+#: model:ir.model.fields,field_description:saas_kit_custom_plans.field_saas_plan__saas_module_ids
+#: model_terms:ir.ui.view,arch_db:saas_kit_custom_plans.contract_from_inherit_view
+msgid "Related Modules"
+msgstr ""
+
+#. module: saas_kit_custom_plans
+#: model:ir.model.fields,field_description:saas_kit_custom_plans.field_res_config_settings__reminder_period
+msgid "Reminder Starts"
+msgstr ""
+
+#. module: saas_kit_custom_plans
+#: model_terms:ir.ui.view,arch_db:saas_kit_custom_plans.odoo_version_form_view
+msgid "Remote Servers"
+msgstr ""
+
+#. module: saas_kit_custom_plans
+#: model_terms:ir.ui.view,arch_db:saas_kit_custom_plans.category_view_template
+#: model_terms:ir.ui.view,arch_db:saas_kit_custom_plans.normal_view_template
+msgid "Remove"
+msgstr ""
+
+#. module: saas_kit_custom_plans
+#: model:ir.model.fields,field_description:saas_kit_custom_plans.field_saas_odoo_version__activity_user_id
+msgid "Responsible User"
+msgstr ""
+
+#. module: saas_kit_custom_plans
+#: model:ir.model.fields,field_description:saas_kit_custom_plans.field_saas_odoo_version__message_has_sms_error
+msgid "SMS Delivery error"
+msgstr ""
+
+#. module: saas_kit_custom_plans
+#: model:ir.model,name:saas_kit_custom_plans.model_saas_contract
+msgid "Saas Contracts"
+msgstr ""
+
+#. module: saas_kit_custom_plans
+#: model:ir.model.fields,field_description:saas_kit_custom_plans.field_server_priority__saas_version_id
+msgid "Saas Version"
+msgstr ""
+
+#. module: saas_kit_custom_plans
+#: model_terms:ir.ui.view,arch_db:saas_kit_custom_plans.category_view_template
+#: model_terms:ir.ui.view,arch_db:saas_kit_custom_plans.normal_view_template
+msgid "Select Apps"
+msgstr ""
+
+#. module: saas_kit_custom_plans
+#: model:ir.model.fields,field_description:saas_kit_custom_plans.field_saas_plan__plan_odoo_version
+msgid "Select Odoo Version"
+msgstr ""
+
+#. module: saas_kit_custom_plans
+#: model_terms:ir.ui.view,arch_db:saas_kit_custom_plans.res_config_settings_inheri_view_form
+msgid "Select apps view"
+msgstr ""
+
+#. module: saas_kit_custom_plans
+#: model:ir.model.fields,help:saas_kit_custom_plans.field_saas_odoo_version__use_specific_user_template
+msgid ""
+"Select if you want to provide some specific permissions to your user for "
+"acessing its odoo instance which is going to be created by this plan."
+msgstr ""
+
+#. module: saas_kit_custom_plans
+#: model_terms:ir.ui.view,arch_db:saas_kit_custom_plans.plan_page
+msgid ""
+"Select the apps as per your requirement and create your instance for "
+"selected apps"
+msgstr "حدد التطبيقات وفقًا لمتطلباتك وقم بإنشاء المثيل الخاص بك للتطبيقات المحددة"
+
+#. module: saas_kit_custom_plans
+#: model_terms:ir.ui.view,arch_db:saas_kit_custom_plans.category_view_template
+#: model_terms:ir.ui.view,arch_db:saas_kit_custom_plans.normal_view_template
+msgid "Selected"
+msgstr ""
+
+#. module: saas_kit_custom_plans
+#: model:ir.model,name:saas_kit_custom_plans.model_server_priority
+msgid "Server Priority"
+msgstr ""
+
+#. module: saas_kit_custom_plans
+#: model:ir.model.fields,field_description:saas_kit_custom_plans.field_saas_odoo_version__state
+msgid "State"
+msgstr ""
+
+#. module: saas_kit_custom_plans
+#: model:ir.model.fields,field_description:saas_kit_custom_plans.field_saas_module_status__status
+#: model_terms:ir.ui.view,arch_db:saas_kit_custom_plans.portal_apps_modal_inherit_template
+msgid "Status"
+msgstr ""
+
+#. module: saas_kit_custom_plans
+#: model:ir.model.fields,help:saas_kit_custom_plans.field_saas_odoo_version__activity_state
+msgid ""
+"Status based on activities\n"
+"Overdue: Due date is already passed\n"
+"Today: Activity date is today\n"
+"Planned: Future activities."
+msgstr ""
+
+#. module: saas_kit_custom_plans
+#: model_terms:ir.ui.view,arch_db:saas_kit_custom_plans.contract_from_inherit_view
+msgid "Sync Modules"
+msgstr ""
+
+#. module: saas_kit_custom_plans
+#: model:ir.model.fields,field_description:saas_kit_custom_plans.field_saas_odoo_version__is_template_created
+msgid "Template Created"
+msgstr ""
+
+#. module: saas_kit_custom_plans
+#: model:ir.model.fields,field_description:saas_kit_custom_plans.field_saas_odoo_version__product_id
+msgid "Template Product"
+msgstr ""
+
+#. module: saas_kit_custom_plans
+#: model_terms:ir.ui.view,arch_db:saas_kit_custom_plans.select_apps_section
+msgid ""
+"The selected products is/are currently unavailable!!  Please contact Admin."
+msgstr ""
+
+#. module: saas_kit_custom_plans
+#: model_terms:ir.ui.view,arch_db:saas_kit_custom_plans.res_config_settings_inheri_view_form
+msgid "This Path should exist on every Saas Server."
+msgstr ""
+
+#. module: saas_kit_custom_plans
+#: model_terms:ir.ui.view,arch_db:saas_kit_custom_plans.plan_page
+msgid "This page is not available right now. Please contact admin."
+msgstr ""
+
+#. module: saas_kit_custom_plans
+#: model:ir.model.fields.selection,name:saas_kit_custom_plans.selection__saas_module_status__status__uninstalled
+msgid "To Be Installed"
+msgstr ""
+
+#. module: saas_kit_custom_plans
+#: model_terms:ir.ui.view,arch_db:saas_kit_custom_plans.select_apps_section
+msgid "Total :"
+msgstr ""
+
+#. module: saas_kit_custom_plans
+#: model_terms:ir.ui.view,arch_db:saas_kit_custom_plans.select_apps_section
+msgid "Total App Price :"
+msgstr ""
+
+#. module: saas_kit_custom_plans
+#: model:ir.model.fields,help:saas_kit_custom_plans.field_saas_odoo_version__activity_exception_decoration
+msgid "Type of the exception activity on record."
+msgstr ""
+
+#. module: saas_kit_custom_plans
+#: model:ir.model.fields,field_description:saas_kit_custom_plans.field_saas_odoo_version__use_specific_user_template
+msgid "Use Specific User Template"
+msgstr ""
+
+#. module: saas_kit_custom_plans
+#: model_terms:ir.ui.view,arch_db:saas_kit_custom_plans.saas_module_product__inherit_view_form
+msgid "User pricing"
+msgstr ""
+
+#. module: saas_kit_custom_plans
+#: model_terms:ir.ui.view,arch_db:saas_kit_custom_plans.select_apps_section
+msgid "Users Price :"
+msgstr ""
+
+#. module: saas_kit_custom_plans
+#: model:ir.model.fields,field_description:saas_kit_custom_plans.field_saas_contract__odoo_version_id
+msgid "Version"
+msgstr ""
+
+#. module: saas_kit_custom_plans
+#: model:ir.model.fields,field_description:saas_kit_custom_plans.field_saas_odoo_version__code
+msgid "Version Code"
+msgstr ""
+
+#. module: saas_kit_custom_plans
+#: model:ir.model.fields,field_description:saas_kit_custom_plans.field_saas_odoo_version__name
+msgid "Version Name"
+msgstr ""
+
+#. module: saas_kit_custom_plans
+#: model_terms:ir.ui.view,arch_db:saas_kit_custom_plans.select_apps_section
+msgid "View All Apps"
+msgstr ""
+
+#. module: saas_kit_custom_plans
+#: model:ir.model.fields,field_description:saas_kit_custom_plans.field_saas_contract__expiry_warnings
+msgid "Warning Remaining"
+msgstr ""
+
+#. module: saas_kit_custom_plans
+#: model:ir.model.fields,field_description:saas_kit_custom_plans.field_saas_odoo_version__website_message_ids
+msgid "Website Messages"
+msgstr ""
+
+#. module: saas_kit_custom_plans
+#: model:ir.model.fields,help:saas_kit_custom_plans.field_saas_odoo_version__website_message_ids
+msgid "Website communication history"
+msgstr ""
+
+#. module: saas_kit_custom_plans
+#: model_terms:ir.ui.view,arch_db:saas_kit_custom_plans.plan_page
+msgid "Yearly"
+msgstr ""
+
+#. module: saas_kit_custom_plans
+#: model_terms:ir.ui.view,arch_db:saas_kit_custom_plans.select_apps_section
+msgid "Yearly Discount("
+msgstr ""
+
+#. module: saas_kit_custom_plans
+#: model_terms:ir.ui.view,arch_db:saas_kit_custom_plans.cancel_odoo_version_wizard_view
+#: model_terms:ir.ui.view,arch_db:saas_kit_custom_plans.drop_odoo_version_db_wizard_view
+msgid "Yes"
+msgstr ""
+
+#. module: saas_kit_custom_plans
+#: model:ir.model,name:saas_kit_custom_plans.model_saas_odoo_version
+msgid "saas.odoo.version"
+msgstr ""
+
+#. module: saas_kit_custom_plans
+#: model:ir.model,name:saas_kit_custom_plans.model_saas_odoo_version_cancel
+msgid "saas.odoo.version.cancel"
+msgstr ""
+
+#. module: saas_kit_custom_plans
+#: model:ir.model,name:saas_kit_custom_plans.model_saas_odoo_version_db_unlink
+msgid "saas.odoo.version.db.unlink"
+msgstr ""
+
+#. module: saas_kit_custom_plans
+#: model_terms:ir.ui.view,arch_db:saas_kit_custom_plans.portal_apps_status_inherit_template
+msgid "uninstalled"
+msgstr ""
+
+#. module: saas_kit_custom_plans
+#: model_terms:ir.ui.view,arch_db:saas_kit_custom_plans.select_apps_section
+msgid "user is Free ... !"
+msgstr ""
+
+#. module: saas_kit_custom_plans
+#: model_terms:ir.ui.view,arch_db:saas_kit_custom_plans.select_apps_section
+msgid "users are Free ... !"
+msgstr ""
+
+#. module: saas_kit_custom_plans
+#: model:mail.template,subject:saas_kit_custom_plans.contract_expiry_warning_template
+msgid "{{object.company_id.name}} Contract (Ref {{object.name or 'n/a' }})"
+msgstr ""
+
+#. module: saas_kit_custom_plans
+#: model:ir.model,name:saas_kit_custom_plans.model_sale_order
+msgid "أمر البيع"
+msgstr ""
+
+#. module: saas_kit_custom_plans
+#: model:ir.model,name:saas_kit_custom_plans.model_sale_order_line
+msgid "بند أمر المبيعات"
+msgstr ""
+
+#. module: saas_kit_custom_plans
+#: model:ir.model,name:saas_kit_custom_plans.model_res_config_settings
+msgid "تهيئة الإعدادات "
+msgstr ""
+
+#. module: saas_kit_custom_plans
+#: model:website.menu,name:saas_kit_custom_plans.main_menu
+#: model_terms:ir.ui.view,arch_db:saas_kit_custom_plans.custom_plan_product_page_inherit
+msgid "Select Your Own Apps"
+msgstr "حدد تطبيقاتك الخاصة"
+
+#. module: saas_kit_custom_plans
+#: model:ir.model,name:saas_kit_custom_plans.model_product_product
+msgid "متغير المنتج "
+msgstr ""
