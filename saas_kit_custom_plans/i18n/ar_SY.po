@@ -96,7 +96,7 @@ msgstr "نسخة أودو"
 #. module: saas_kit_custom_plans
 #: model_terms:ir.ui.view,arch_db:saas_kit_custom_plans.plan_page
 msgid "<span class=\"heading_text\" id=\"billing_text\">BILLING CYCLE: </span>"
-msgstr ""
+msgstr "<span class=\"heading_text\" id=\"billing_text\">دورة الفوترة: </span>"
 
 #. module: saas_kit_custom_plans
 #: model_terms:ir.ui.view,arch_db:saas_kit_custom_plans.plan_page
