@@ -41,7 +41,7 @@
                              'data/contract_expiry_warning_template.xml',
                              'views/plan_view.xml',
                              'views/contract_view.xml',
-                             # 'views/menuitems.xml',
+                             'views/menuitems.xml',
                              'views/page_template.xml',
                              'views/portal_template.xml',
                              'data/product.xml',
