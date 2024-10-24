@@ -466,6 +466,7 @@ publicWidget.registry.CustomPlan = publicWidget.Widget.extend({
         this.orm.call('saas.odoo.version','get_default_saas_values',[])
         .then(function(data){
             var user_cost = data['user_cost'];
+            console.log('user_cost-----------', user_cost)
             if(max_users ==0){
                 max_users = data['max_users'];
                 if (users == max_users+1){
@@ -481,7 +482,14 @@ publicWidget.registry.CustomPlan = publicWidget.Widget.extend({
                     users_price = 0;
                 }
             }else{
-                users_price = users * user_cost;
+                if(users > 1){
+                    users = users - 1
+                    users_price = users * user_cost;
+                }
+                else {
+                    users_price = 0;
+                }
+                console.log('users_price', users_price)
             }
             users_price = users_price * number
             $('#user_price_span').text(user_cost.toString());

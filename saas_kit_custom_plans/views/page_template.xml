@@ -230,7 +230,7 @@
                     </div>
                 </div>
             </div>
-            <t t-if="is_users">
+            <t>
                 <div class="user_div d-flex" >
                     <div id="user_selection">
                         <div class="form-group" style="margin-left: 30px;">

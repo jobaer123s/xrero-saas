@@ -107,7 +107,7 @@
 
 
 
-                            <setting class = "col-12" invisible="(not is_users)" id="custom_plan_addons_path" help="This Path should exist on every Saas Server.">
+                            <setting class = "col-12" id="custom_plan_addons_path" help="This Path should exist on every Saas Server.">
                                 <!-- <div class="o_setting_left_pane">
                                 </div> -->
                                 <div class="">
