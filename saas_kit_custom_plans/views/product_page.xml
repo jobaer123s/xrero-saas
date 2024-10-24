@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Copyright (c) 2016-Present Xrero Software Pvt. Ltd. (<https://Xrero.com/>) -->
 <!-- See LICENSE file for full copyright and licensing details. -->
-<!-- License URL : <https://store.Xrero.com/license.html/> -->
+<!-- License URL : <https://xrero.com/license.html/> -->
 
 <odoo>
     <template id="custom_plan_product_page_inherit" inherit_id="website_sale.product">
