@@ -29,7 +29,7 @@
                             <div class="d-flex col-lg-9 col-sm-12 col-md-12 flex-wrap" id="inner_1_navbar_div">
                             <!-- <div class="d-flex col-12" id="inner_1_navbar_div"> -->
                                 <div class="d-flex col-lg-4 col-sm-4 col-md-4" id="inner_2_navbar_div">
-                                    <div class="d-flex justify-content options_div" id="inner_3_navbar_div">
+                                    <div style="margin-left: 14px;" class="d-flex justify-content options_div" id="inner_3_navbar_div">
                                         <span class="heading_text">CATEGORIES APPS: </span>
                                         <div class="toggle_button pt-2">
                                             <label class="switch">
@@ -60,6 +60,14 @@
                                         </div>
                                     </div>
                                 </div>
+
+                                <div class="d-flex col-lg-4 col-sm-4 col-md-4" id="inner_2_cycle_div">
+                                    <div class="d-flex justify-content options_div" id="inner_3_cycle_div">
+                                        <span class="heading_text" id="billing_text">NO. OF USERS: </span>
+                                        <input class="form-control oe_inline" id="number_of_users" type="number" min="1" value="1"/>
+                                    </div>
+                                </div>
+
                                 <div class="d-flex col-lg-4 col-sm-4 col-md-4">
                                     <div style="display:none !important" class='d-flex justify-content options_div' id="combine_version_div">
                                         <t t-if="odoo_version">
@@ -231,10 +239,10 @@
                 </div>
             </div>
             <t>
-                <div class="user_div d-flex" >
+                <div style="display:none !important" class="user_div d-flex" >
                     <div id="user_selection">
                         <div class="form-group" style="margin-left: 30px;">
-                            <label id="number_of_user_label" for="number_of_users">NO. OF USERS:</label>
+                            <label id="number_of_user_label" for="number_of_users"></label>
                             <!-- <t t-if="max_users>=1">
                                 <input class="form-control oe_inline" id="number_of_users" type="number" min="1" t-att-max="max_users" value="1"/>
                             </t>
