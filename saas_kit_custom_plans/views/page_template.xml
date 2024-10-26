@@ -61,12 +61,12 @@
                                     </div>
                                 </div>
 
-<!--                                <div class="d-flex col-lg-4 col-sm-4 col-md-4" id="inner_2_cycle_div">-->
-<!--                                    <div class="d-flex justify-content options_div" id="inner_3_cycle_div">-->
-<!--                                        <span class="heading_text" id="billing_text">NO. OF USERS: </span>-->
-<!--                                        <input class="form-control oe_inline" id="number_of_users" type="number" min="1" value="1"/>-->
-<!--                                    </div>-->
-<!--                                </div>-->
+                                <div class="d-flex col-lg-4 col-sm-4 col-md-4" id="inner_2_cycle_div">
+                                    <div class="d-flex justify-content options_div" id="inner_3_cycle_div">
+                                        <span class="heading_text" id="billing_text">NO. OF USERS: </span>
+                                        <input class="form-control oe_inline" id="number_of_users" type="number" min="1" value="1"/>
+                                    </div>
+                                </div>
 
                                 <div class="d-flex col-lg-4 col-sm-4 col-md-4">
                                     <div style="display:none !important" class='d-flex justify-content options_div' id="combine_version_div">
